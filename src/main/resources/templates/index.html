@@ -1,25 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https;//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Domza</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dark-page.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="title-container">
-        <span>[!]</span>
-        <h1 id="title">Welcome to my website</h1>
-        <span>[!]</span>
-    </div>
-    <nav>
-      <ul class="--flex-center">
-        <li><a href="#about"><u>&#60;/</u>About me<u>&#62;</u></a></li>
-        <li><a href="dev-portfolio"><u>&#60;/</u>DEV Portfolio<u>&#62;</u></a></li>
-        <li><a href="#hobbies"><u>&#60;/</u>Hobbyes<u>&#62;</u></a></li> <!-- /photography, programing projects, MTB -->
-        <li><a href="diary"><u>&#60;/</u>Diary<u>&#62;</u></a></li>
-        <li><a href="#guest-book"><u>&#60;/</u>Guest book<u>&#62;</u></a></li>
-        <li><a href="#contact-info"><u>&#60;/</u>Contact<u>&#62;</u></a></li>
-      </ul>
-    </nav>
+    <header>
+      Header: link images baners
+    </header>
+    <main>
+      <section id="hero">
+        <div class="title">
+          <span>[!]</span>
+          <h1>Welcome to my website</h1>
+          <span class="tempHide">[!]</span>
+        </div>
+        <nav>
+          <ul>
+            // subpage links
+            <li><a href="diary"><u>&#60;/</u>Diary<u>&#62;</u></a></li>
+            <li><a href="dev-portfolio"><u>&#60;/</u>DEV Portfolio<u>&#62;</u></a></li>
+            <li><a href="photography"><u>&#60;/</u>Photographi<u>&#62;</u></a></li>
+            
+            // main page links
+            <li><a href="#about"><u>&#60;/</u>About me<u>&#62;</u></a></li>
+            <li><a href="#guest-book"><u>&#60;/</u>Guest book<u>&#62;</u></a></li>
+            <li><a href="#contact-info"><u>&#60;/</u>Contact<u>&#62;</u></a></li>
+            <li><a href="#programing"><u>&#60;/</u>Programing<u>&#62;</u></a></li>
+            <li><a href="#mtb"><u>&#60;/</u>MTB<u>&#62;</u></a></li>
+          </ul>
+        </nav>
+      </section>
+      <section id="about-me">
+        <div class="section-devider">
+          <span></span>
+          <h2><b>| </b>About m3<b> |</b></h2>
+          <span></span>
+        </div>
+        <div class="section-content">
+          <article>
+            Hello!
+            <br>
+            I am Domza, 20 yearold guy from Zadar, Croatia.
+            <br>
+           <q>Way too many hobbies but too litle time.. at least im never bored</q>
+            <br>
+            When I'm not sleeping, I'm usually: riding my bike or skateboard, flying drones, 
+            RC cars, fixing up my bike or my TOMOS APN4, sometimes 
+            I go out for a night drive and just listen to music or enjoy silence, I also have a job and 
+            even a few friends :). And then... best of all, theres linux, computers, thinkpads, programing 
+            and all that cool stuff.
+            <br>
+            I use Arch btw 
+          </article>
+          <div style="min-width: 200px; height: 400px; background-color: red;"></div>
+        </div>
+      </section>
+      <section id="programing">
+        <div class="section-devider">
+          <span></span>
+          <h2><b>| </b>Programing<b> |</b></h2>
+          <span></span>
+        </div>
+        <div class="section-content">
+          // how i started, why I do it and some projects, link to projects page and portfolio page
+        </div>
+      </section>
+      <section id="mtb">
+        <div class="section-devider">
+          <span></span>
+          <h2><b>| </b>Mtb<b> |</b></h2>
+          <span></span>
+        </div>
+        <div class="section-content">
+
+        </div>
+      </section>
+      <section id="guest-book">
+        <div class="section-devider">
+          <span></span>
+          <h2><b>| </b>Guest Book<b> |</b></h2>
+          <span></span>
+        </div>
+        <div class="section-content">
+          <div class="message-container">
+            <div class="message">
+              <span class="name">Name</span>
+              <span class="message-text">Some message.</span>
+              <span class="date">29.09.2023.</span>
+            </div>
+          </div>
+          <form action="">
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Message">
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      Footer
+    </footer>
+    <script  th:src="@{/js/index.js}"></script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+:root {
+  --background: black;
+  --green: #24b729;
+  --dark-green: #188d1c;
+}
+
+html {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--background);
+  color: var(--green);
+}
+html a {
+  color: var(--dark-green);
+}
+html a:hover {
+  color: var(--green);
+}/*# sourceMappingURL=dark-page.css.map */
