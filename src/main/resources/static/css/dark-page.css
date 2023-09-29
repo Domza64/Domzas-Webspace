@@ -2,16 +2,29 @@
   --background: black;
   --green: #24b729;
   --dark-green: #188d1c;
+  --green-shadow: #37e53c;
 }
 
 html {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "IBM-PlexMono", monospace;
   background-color: var(--background);
   color: var(--green);
+  -webkit-animation: glow 4s ease-in-out infinite alternate;
+  -moz-animation: glow 4s ease-in-out infinite alternate;
+  animation: glow 4s ease-in-out infinite alternate;
 }
-html a {
+a {
   color: var(--dark-green);
 }
-html a:hover {
+a:hover {
   color: var(--green);
-}/*# sourceMappingURL=dark-page.css.map */
+}
+
+@keyframes glow {
+  from {
+      text-shadow: 0 0 10px var(--green-shadow);
+  }
+  to {
+      text-shadow: 0 0 15px var(--green-shadow), 0 0 15px var(--green-shadow);
+  }
+}

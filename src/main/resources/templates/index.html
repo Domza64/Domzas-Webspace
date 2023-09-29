@@ -7,13 +7,17 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/dark-page.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/specific/index.css}"/>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+    </script>
 </head>
 <body>
     <header>
-      Header: link images baners
+      <span>Header</span>
     </header>
     <main>
       <section id="hero">
@@ -41,7 +45,7 @@
       <section id="about-me">
         <div class="section-devider">
           <span></span>
-          <h2><b>| </b>About m3<b> |</b></h2>
+          <h2><b>|</b>ABOUT M3<b>|</b></h2>
           <span></span>
         </div>
         <div class="section-content">
@@ -60,13 +64,13 @@
             <br>
             I use Arch btw 
           </article>
-          <div style="min-width: 200px; height: 400px; background-color: red;"></div>
+          <img th:src="@{/assets/images/about-me-2.webp}" alt="Image of me on my bike">
         </div>
       </section>
       <section id="programing">
         <div class="section-devider">
           <span></span>
-          <h2><b>| </b>Programing<b> |</b></h2>
+          <h2><b>|</b>PROGRAMING<b>|</b></h2>
           <span></span>
         </div>
         <div class="section-content">
@@ -76,27 +80,21 @@
       <section id="mtb">
         <div class="section-devider">
           <span></span>
-          <h2><b>| </b>Mtb<b> |</b></h2>
+          <h2><b>|</b>MTB<b>|</b></h2>
           <span></span>
         </div>
         <div class="section-content">
-
+            <span>MTB, very fun</span>
         </div>
       </section>
       <section id="guest-book">
         <div class="section-devider">
           <span></span>
-          <h2><b>| </b>Guest Book<b> |</b></h2>
+          <h2><b>|</b>GUEST BOOK<b>|</b></h2>
           <span></span>
         </div>
         <div class="section-content">
-          <div class="message-container">
-            <div class="message">
-              <span class="name">Name</span>
-              <span class="message-text">Some message.</span>
-              <span class="date">29.09.2023.</span>
-            </div>
-          </div>
+          <ul id="message-container"></ul>
           <form action="">
             <input type="text" placeholder="Name">
             <input type="text" placeholder="Message">
@@ -106,7 +104,7 @@
       </section>
     </main>
     <footer>
-      Footer
+      <span>Footer</span>
     </footer>
     <script  th:src="@{/js/index.js}"></script>
 </body>

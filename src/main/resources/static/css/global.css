@@ -1,12 +1,15 @@
 * {
   margin: 0px;
   padding: 0px;
+  font-size: 12pt;
 }
-
+article p {
+  line-height: 120%;
+}
 li {
   list-style: none;
 }
 
 a {
   text-decoration: none;
-}/*# sourceMappingURL=global.css.map */
+}
