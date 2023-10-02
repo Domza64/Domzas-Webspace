@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/dark-page.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/glitch.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/specific/index.css}"/>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -17,33 +18,36 @@
 </head>
 <body>
     <header>
-      <span>Header</span>
+      <div>
+        <img th:src="@{/assets/media/images/gif/under-construction.gif}" alt="Under Construction gif">
+        <img th:src="@{assets/media/images/gif/linux.gif}" alt="Linux gif">
+        <a href="feed.xml"><img th:src="@{assets/media/images/gif/rss.gif}" alt="Rss gif"></a>
+        <img th:src="@{assets/media/images/gif/miku-approved.gif}" onclick="playMiku()" alt="Hatsune Miku gif">
+      </div>
     </header>
     <main>
       <section id="hero">
         <div class="title">
-          <span>[!]</span>
-          <h1>Welcome to my website</h1>
-          <span class="tempHide">[!]</span>
+          <span class="glitch" data-text="[!]">[!]</span>
+          <h1 class="glitch" data-text="Welcome to my website">Welcome to my website</h1>
+          <span class="hide-mobile">[!]</span>
         </div>
         <nav>
           <ul>
-            // subpage links
-            <li><a href="diary"><u>&#60;/</u>Diary<u>&#62;</u></a></li>
-            <li><a href="dev-portfolio"><u>&#60;/</u>DEV Portfolio<u>&#62;</u></a></li>
-            <li><a href="photography"><u>&#60;/</u>Photographi<u>&#62;</u></a></li>
-            
-            // main page links
-            <li><a href="#about"><u>&#60;/</u>About me<u>&#62;</u></a></li>
-            <li><a href="#guest-book"><u>&#60;/</u>Guest book<u>&#62;</u></a></li>
-            <li><a href="#contact-info"><u>&#60;/</u>Contact<u>&#62;</u></a></li>
-            <li><a href="#programing"><u>&#60;/</u>Programing<u>&#62;</u></a></li>
-            <li><a href="#mtb"><u>&#60;/</u>MTB<u>&#62;</u></a></li>
+            <li><a href="diary"><b>&#60;/</b>Diary<b>&#62;</b></a></li>
+            <li><a href="dev-portfolio"><b>&#60;/</b>DEV Portfolio<b>&#62;</b></a></li>
+            <li><a href="photography"><b>&#60;/</b>Photographi<b>&#62;</b></a></li>
+            <br>
+            <li><a href="#about"><b>&#60;/</b>About me<b>&#62;</b></a></li>
+            <li><a href="#guest-book"><b>&#60;/</b>Guest book<b>&#62;</b></a></li>
+            <li><a href="#contact-info"><b>&#60;/</b>Contact<b>&#62;</b></a></li>
+            <li><a href="#programing"><b>&#60;/</b>Programing<b>&#62;</b></a></li>
+            <li><a href="#mtb"><b>&#60;/</b>MTB<b>&#62;</b></a></li>
           </ul>
         </nav>
       </section>
-      <section id="about-me">
-        <div class="section-devider">
+      <section id="about">
+        <div class="section-devider testda">
           <span></span>
           <h2><b>|</b>ABOUT M3<b>|</b></h2>
           <span></span>
@@ -64,7 +68,7 @@
             <br>
             I use Arch btw 
           </article>
-          <img th:src="@{/assets/images/about-me-2.webp}" alt="Image of me on my bike">
+          <img th:src="@{/assets/media/images/about-me.webp}" alt="Image of me on my bike">
         </div>
       </section>
       <section id="programing">
@@ -94,17 +98,28 @@
           <span></span>
         </div>
         <div class="section-content">
+          <h3>Newest messages</h3>
           <ul id="message-container"></ul>
-          <form action="">
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="Message">
-            <button type="submit">Send</button>
+          <a href="/messages">All messages</a>
+          <form action="#" th:action="@{/submit-message}" th:object="${message_form}" method="post">
+            <h3>Enter you nickname and message.</h3>
+            <input type="text" placeholder="Enter your nickname" require maxlength="24" th:field="*{name}">
+            <textarea placeholder="Enter message" require maxlength="256" th:field="*{message}"></textarea>
+            <button type="submit">SUBMIT</button>
           </form>
         </div>
       </section>
     </main>
     <footer>
-      <span>Footer</span>
+      <img th:src="@{/assets/media/images/gif/thank-you-internet.gif}" alt="Cool gif of intenet">
+      <span class="hihi">&gt;_&lt;</span>
+      <div class="contact">
+        <span><b>- CONTACT M3 -</b></span>
+        <span><b>GSM / Signal:</b> <a href="tel:+385955054865">+385 95 505 4865</a></span>
+        <span><b>e-mail:</b> <a href="mailto:juricicdominik@protonmail.com" target="_blank">juricicdominik@protonmail.com</a></span>
+        <span><b>Matrix:</b> @domza64:matrix.org</span>
+     </div>
+      <a href="#hero">Back to top</a>
     </footer>
     <script  th:src="@{/js/index.js}"></script>
 </body>

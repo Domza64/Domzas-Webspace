@@ -1,6 +1,24 @@
 header {
   max-width: 100%;
+  display: flex;
+  justify-content: center;
   text-align: center;
+}
+header div {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+header div a {
+  width: 160px;
+  height: 60px;
+}
+header div img {
+  width: 160px;
+  height: 60px;
 }
 
 section {
@@ -8,54 +26,96 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 8rem;
 }
 section .section-devider {
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 2rem 0rem;
   font-weight: 200;
+  max-width: 100%;
   overflow: hidden;
 }
-section .section-devider b {
-  font-weight: 600;
-}
 section .section-devider h2 {
+  overflow: hidden;
   min-width: -moz-max-content;
   min-width: max-content;
   font-weight: 200;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 16px;
 }
 section .section-devider h2 b {
   font-size: 1.5rem;
   font-weight: 500;
 }
+section .section-devider span {
+  overflow: hidden;
+}
+section .section-devider span b {
+  font-weight: 600;
+}
 section .section-content {
   max-width: 1000px;
   margin: 1rem;
 }
 
+#hero {
+  margin-top: 20vh;
+  margin-bottom: 30vh;
+}
 #hero .title {
+  margin: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#hero .title .tempHide {
-  display: none;
+#hero .title span {
+  font-weight: 600;
+  font-size: 2rem;
+}
+#hero .title h1 {
+  font-size: 2rem;
+  font-weight: 200;
+  text-align: center;
+}
+#hero nav {
+  margin: 1rem;
+}
+#hero nav ul {
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+}
+#hero nav ul li a {
+  font-weight: 200;
+  font-size: 1.3rem;
+}
+#hero nav ul li b {
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
-#about-me .section-content {
+#about .section-content {
   display: grid;
   gap: 2rem;
   align-items: center;
   text-align: center;
   justify-items: center;
 }
-#about-me .section-content img {
+#about .section-content img {
   max-width: 360px;
   width: 100%;
 }
 
+#guest-book h3 {
+  font-weight: 200;
+  font-size: 1.4rem;
+}
 #guest-book .section-content {
   display: flex;
   flex-direction: column;
@@ -77,20 +137,92 @@ section .section-content {
 #guest-book .section-content #message-container .date {
   font-weight: 300;
 }
+#guest-book .section-content a {
+  text-decoration: underline;
+}
+#guest-book .section-content form {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+#guest-book .section-content form textarea {
+  height: 120px;
+}
+#guest-book .section-content form .message {
+  min-height: 60px;
+}
 
 footer {
-  max-width: 100%;
-  margin: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 12rem;
+}
+footer img {
+  width: 280px;
+}
+footer .hihi {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+footer .contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  justify-content: center;
+}
+footer .contact span {
+  font-weight: 200;
+}
+footer .contact span b {
+  font-weight: 400;
+}
+footer a {
+  font-weight: 300 !important;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+.hide-mobile {
+  display: none;
 }
 
 @media only screen and (min-width: 801px) {
-  #about-me .section-content {
+  .hide-mobile {
+    display: block;
+  }
+  .title {
+    flex-direction: row !important;
+    gap: 1rem;
+  }
+  .title h1 {
+    font-size: 2.8rem !important;
+  }
+  .title span {
+    font-size: 3rem;
+  }
+  #about .section-content {
     grid-template-columns: 2fr 1fr;
+  }
+  #hero nav ul li a {
+    font-size: 1.6rem;
+  }
+  #hero nav ul li b {
+    font-size: 1.6rem;
+  }
+  .section-devider {
+    flex-direction: row !important;
   }
 }
 @media only screen and (min-width: 1001px) {
-  #about-me .section-content {
+  #about .section-content {
     gap: 5rem;
   }
 }/*# sourceMappingURL=index.css.map */

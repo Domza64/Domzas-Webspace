@@ -14,10 +14,34 @@ html {
   animation: glow 4s ease-in-out infinite alternate;
 }
 a {
-  color: var(--dark-green);
+  color: var(--green);
 }
 a:hover {
+  color: var(--dark-green);
+  text-shadow: none;
+}
+
+form > input, textarea{
+  background-color: black;
+  border: 2px dotted var(--green);
   color: var(--green);
+  font-weight: 200;
+  letter-spacing: 2px;
+  padding: .3rem .6rem;
+  color: #37e53c;
+  font-weight: 300;
+  font-family: "IBM-PlexMono", monospace;
+}
+button {
+  padding: .4rem 1.2rem;
+  background-color: black;
+  border: 2px dotted var(--green);
+  color: var(--green);
+  width: max-content;
+  letter-spacing: 4px;
+}
+button:hover {
+  border: 2px dashed var(--green);
 }
 
 @keyframes glow {
