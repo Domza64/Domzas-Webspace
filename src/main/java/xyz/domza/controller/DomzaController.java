@@ -17,6 +17,11 @@ public class DomzaController {
         return new ModelAndView("index", "message_form", new Message());
     }
 
+    @GetMapping("/diary")
+    public String diary() {
+        return "diary";
+    }
+
     @PostMapping("/submit-message")
     public String submitMessage(@ModelAttribute("message_form") Message message) {
         System.out.println(message.getName() + ", " + message.getMessage());

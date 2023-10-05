@@ -22,4 +22,18 @@ public class DomzaRestController {
     public List<Message> getComments() {
         return messages;
     }
+
+    @GetMapping("/diary-articles")
+    public List<String> getDiaryArticles() {
+        List<String> list = new ArrayList<>(List.of("""
+                ## Title
+                ### Smaller title
+                text waosd jfl dsl ek fjvoie sldf
+                - list item
+                - list item 2
+                """,
+                "## Article 2"));
+        list.add("## Article 3");
+        return list;
+    }
 }
