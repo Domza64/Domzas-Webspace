@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Diary | Domza64</title>
+    
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -14,20 +15,24 @@
             type="module"
             src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js">
     </script>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dark-page.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/glitch.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/specific/diary.css}"/>
 </head>
 <body>
-    <h1>Diary</h1>
-    <section id="article-container"></section>
-    <script>
-        $(document).ready(function() {
-            var $container = $('#article-container');
-            $.getJSON("/api/diary-articles", {}, function (data) {
-                $.each(data, function(idx, articleText) {
-                    var script = $('<script type="text/markdown"></' + 'script>').text(articleText);
-                    $container.append($('<zero-md></zero-md>').append(script))
-                });
-            });
-        });
-    </script>
+    <header>
+        <a href="/"><b>-</b> go back <b>-</b></a>
+    </header>
+    <main>
+        <section id="hero">
+            <h1 class="glitch" data-text="&#62; Diary &#60;">&#62; Diary &#60;</h1>
+            <span>Newest articles are on top, the more you scroll down the older articles you will find...</span>
+        </section>
+        <section id="article-container"></section>
+        <script th:src="@{/js/diary.js}"></script>
+    </main>
 </body>
 </html>
