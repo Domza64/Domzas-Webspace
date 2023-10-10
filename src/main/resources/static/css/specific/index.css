@@ -228,18 +228,24 @@ section .section-content {
   display: grid;
   gap: 2rem 5rem;
   text-align: center;
-  width: 95%;
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1600px;
 }
-#guest-book .section-content #message-container .name {
+#guest-book .section-content #message-container li {
+  width: 100%;
+  max-width: 90vw;
+}
+#guest-book .section-content #message-container li .name {
   font-weight: 500;
   font-size: 1.2rem;
   text-shadow: none;
 }
-#guest-book .section-content #message-container .message {
+#guest-book .section-content #message-container li .message {
   font-weight: 300;
+  inline-size: 100%;
+  overflow-wrap: break-word;
 }
-#guest-book .section-content #message-container .date {
+#guest-book .section-content #message-container li .date {
   font-weight: 400;
   margin-top: 0.2rem;
 }
@@ -328,6 +334,9 @@ footer a:hover {
   }
   #message-container {
     grid-template-columns: 1fr 1fr;
+  }
+  #message-container li {
+    min-width: 50%;
   }
 }
 @media only screen and (min-width: 1001px) {

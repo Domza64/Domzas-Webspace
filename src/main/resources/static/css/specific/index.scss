@@ -229,20 +229,25 @@ section {
             display: grid;
             gap: 2rem 5rem;
             text-align: center;
-            width: 95%;
-            max-width: 1000px;
-            .name {
-                font-weight: 500;
-                font-size: 1.2rem;
-                text-shadow: none;
-                
-            }
-            .message {
-                font-weight: 300;
-            }
-            .date {
-                font-weight: 400;
-                margin-top: .2rem;
+            width: 100%;
+            max-width: 1600px;
+            li {
+                width: 100%;
+                max-width: 90vw;
+                .name {
+                    font-weight: 500;
+                    font-size: 1.2rem;
+                    text-shadow: none;
+                }
+                .message {
+                    font-weight: 300;
+                    inline-size: 100%;
+                    overflow-wrap: break-word;
+                }
+                .date {
+                    font-weight: 400;
+                    margin-top: .2rem;
+                }
             }
         }
         a {
@@ -341,6 +346,9 @@ footer {
     }
     #message-container {
         grid-template-columns: 1fr 1fr;
+        li {
+            min-width: 50%;
+        }
     }
 }
 @media only screen and (min-width: 1001px) { 

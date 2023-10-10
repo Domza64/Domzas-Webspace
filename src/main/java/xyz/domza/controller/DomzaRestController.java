@@ -14,8 +14,8 @@ public class DomzaRestController {
 
     public static List<Message> messages = new ArrayList<>(List.of(
             new Message("Domza64", "Yo this is epic", "1.2.2200"),
-            new Message("Jovo", "Sta je ovo", "1.5.2020"),
-            new Message("Stipko", "Najbolja strana na internetu ei!", "15.5.1700")
+            new Message("Jovo", "Sta je ovo..............................................................................................................................................................................................................................................................", "1.5.2020"),
+           new Message("Stipko", "Najbolja strana na internetu ei!", "15.5.1700")
     ));
 
     @GetMapping("/comments")
