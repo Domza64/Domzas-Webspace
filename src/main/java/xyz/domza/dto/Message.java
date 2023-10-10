@@ -1,4 +1,4 @@
-package xyz.domza;
+package xyz.domza.dto;
 
 public class Message {
     private String name;

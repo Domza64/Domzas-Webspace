@@ -97,6 +97,14 @@ section {
             }
         }
     }
+    img {
+        position: absolute;
+        width: 90%;
+        max-width: 750px;
+        opacity: 35%;
+        z-index: -1;
+        bottom: -200px;
+    }
 }
 #about{
     .section-content {
@@ -109,11 +117,107 @@ section {
             max-width: 360px;
             width: 100%;
         }
+        .about-text {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3rem;
+            span {
+                font-variant-caps: petite-caps;
+                font-size: 1.8rem;
+                font-weight: 300;
+                a {
+                    font-weight: 400;
+                    font-size: 1.6rem;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+#programing {
+    text-align: center;
+    .section-content {
+        max-width: 1600px;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        flex-direction: column;
+        font-weight: 300;
+        a {
+            font-weight: 400;
+        }
+        h3 {
+            font-weight: 400;
+            font-size: 1.8rem;
+            b {
+                font-size: 1.8rem;
+            }
+            font-variant-caps: petite-caps;
+            letter-spacing: 4px;
+        }
+        .about-programing {
+            text-align: left;
+            max-width: 1200px;
+            h3 {
+                font-size: 1.8rem;
+            }
+            h4 {
+                font-weight: 500;
+                font-size: 1.2rem;
+                margin-top: .5rem;
+            }
+            margin-bottom: 3rem;
+        }
+        .projects-grid {
+            margin: 1rem;
+            display: grid;
+            gap: 4rem;
+            article {
+                h4 {
+                    font-weight: 500;
+                    margin-bottom: 1rem;
+                    font-size: 1.2rem;
+                    span {
+                        font-size: 1.2rem;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+        .projects-links {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+        }
+    }
+}
+#mtb {
+    .section-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1000px;
+        font-weight: 300;
+        img {
+            width: 100%;
+            max-width: 1000px;
+        }
+        span {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.4rem;
+            a {
+                text-decoration: underline;
+                font-size: 1.8rem;
+            }
+        }
     }
 }
 #guest-book {
     h3 {
-        font-weight: 200;
+        font-weight: 300;
         font-size: 1.4rem;
     }
     .section-content {
@@ -123,17 +227,22 @@ section {
         gap: 6rem;
         #message-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 2rem 5rem;
             text-align: center;
+            width: 95%;
+            max-width: 1000px;
             .name {
-                font-weight: 400;
+                font-weight: 500;
+                font-size: 1.2rem;
+                text-shadow: none;
+                
             }
             .message {
-                font-weight: 200;
+                font-weight: 300;
             }
             .date {
-                font-weight: 300;
+                font-weight: 400;
+                margin-top: .2rem;
             }
         }
         a {
@@ -230,11 +339,21 @@ footer {
     .section-devider {
         flex-direction: row !important;
     }
+    #message-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 @media only screen and (min-width: 1001px) { 
     #about {
         .section-content {
             gap: 5rem;
+        }
+    }
+    #programing {
+        .section-content {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     }
 }

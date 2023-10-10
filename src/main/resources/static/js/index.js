@@ -1,8 +1,6 @@
 $(document).ready(function() {
   // Create section deviders
-  var deviders = $('.section-devider > span');
-  var randDeviderString = deviderBuilder();
-  deviders.html(randDeviderString);
+  updateDeviders();
 
   // Get comments from API
   // Could have done this more simply with Model and Thymeleaf,
@@ -18,6 +16,16 @@ $(document).ready(function() {
       });
   });
 });
+
+// Probably not very resource heavy for todays standards... Still tho, probably should add option to disable this
+function updateDeviders() {
+  var deviders = $('.section-devider > span');
+  var randDeviderString = deviderBuilder();
+  deviders.html(randDeviderString);
+  setTimeout(function() {
+    updateDeviders();
+  }, 550)
+}
 
 function deviderBuilder() {
   var randomString = '';
