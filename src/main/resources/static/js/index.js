@@ -9,7 +9,7 @@ $(document).ready(function() {
   $.getJSON("/api/comments", {}, function (data) {
       var $ul = $('#message-container');
       $.each(data, function(idx, messageObj) {
-        var name = $('<div class="name"></div>').text(messageObj.name);
+        var name = $('<div class="name"></div>').text(messageObj.userName);
         var message = $('<div class="message"></div>').text(messageObj.message);
         var date = $('<div class="date"></div>').text(messageObj.date);
         $ul.append($('<li></li>').append(name, message, date))

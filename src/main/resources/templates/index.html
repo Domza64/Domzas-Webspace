@@ -169,7 +169,7 @@
           <a href="/messages">All messages</a>
           <form action="#" th:action="@{/submit-message}" th:object="${message_form}" method="post">
             <h3>Enter you nickname and message.</h3>
-            <input type="text" placeholder="Enter your nickname" require maxlength="24" th:field="*{name}">
+            <input type="text" placeholder="Enter your nickname" require maxlength="24" th:field="*{userName}">
             <textarea placeholder="Enter message" require maxlength="256" th:field="*{message}"></textarea>
             <button type="submit">SUBMIT</button>
           </form>
