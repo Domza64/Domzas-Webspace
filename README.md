@@ -13,8 +13,8 @@ why I chose to make my website with it.
 If you want for whatever reason, you can use this project's API, here are the instructions ¯⁠\⁠_⁠(⁠ ͡⁠°⁠ ͜⁠ʖ⁠ ͡⁠°⁠)⁠_⁠/⁠¯.
 It is used by this website to fetch comments and diary articles from database.
 ### To use send http request to:
-- Comments: [HERE](https://domza.xyz/api/comments), (Returns: Json list of comments).
-- Diary articles: [HERE](https://domza.xyz/api/diary-articles), (Returns: Json list of articles in markdown).
+- Comments: 'https://domza.xyz/api/comments', (Returns: Json list of comments).
+- Diary articles: 'https://domza.xyz/api/diary-articles', (Returns: Json list of articles in markdown).
 
 
 ### Other stuff less important stuff
