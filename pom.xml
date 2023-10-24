@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>xyz.domza</groupId>
 	<artifactId>DomzasWebspace</artifactId>
-	<version>0.0.3-pre-release</version>
+	<version>1.0</version>
 	<name>DomzasWebspace</name>
 	<description>My personal website</description>
 	<properties>

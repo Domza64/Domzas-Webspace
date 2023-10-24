@@ -30,6 +30,11 @@ public class DomzaController {
         return "diary";
     }
 
+    @GetMapping("/mtb")
+    public String mtb() {
+        return "mtb";
+    }
+
     @PostMapping("/submit-message")
     public String submitMessage(@Valid @ModelAttribute("message_form") UserCommentModel userComment, BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) {

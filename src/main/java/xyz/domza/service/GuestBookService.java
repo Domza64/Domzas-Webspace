@@ -22,7 +22,7 @@ public class GuestBookService implements RepositoryService<UserCommentModel> {
     }
 
     @Override
-    public Optional<UserCommentModel> fetch(String id) {
+    public Optional<UserCommentModel> fetch(Integer id) {
         // TODO
         return Optional.empty();
     }

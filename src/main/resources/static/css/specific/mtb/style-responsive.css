@@ -1,0 +1,28 @@
+@media only screen and (min-width: 800px) {
+  .__gallery_images_container {
+    max-height: 320px !important;
+    width: 47% !important;
+  }
+  .__about_container {
+    gap: 4em;
+  }
+  .__about_container div {
+    width: 40% !important;
+    padding: 0px !important;
+  }
+  .__about_container img {
+    width: 45% !important;
+  }
+  #__races .__races_container {
+    gap: 40px !important;
+  }
+  #__races .__races_container .race_container {
+    width: 24% !important;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .__gallery_images_container {
+    max-height: 240px !important;
+    width: 31% !important;
+  }
+}/*# sourceMappingURL=style-responsive.css.map */

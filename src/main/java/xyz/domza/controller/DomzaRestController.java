@@ -28,14 +28,4 @@ public class DomzaRestController {
         diaryService.fetchAll().forEach(article -> articles.add(article.getText()));
         return articles;
     }
-
-//    @GetMapping(value = "/images/{imageId}", produces = MediaType.IMAGE_JPEG_VALUE)
-//    Resource downloadImage(@PathVariable Long imageId) {
-//        byte[] image = imageRepository.findById(imageId)
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND))
-//                .getImageData();
-//
-//        return new ByteArrayResource(image);
-//    }
-    // for html - <img th:src="@{/images/${image.id}}" alt="Image">
 }

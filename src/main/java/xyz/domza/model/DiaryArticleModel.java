@@ -3,15 +3,17 @@ package xyz.domza.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "diary_articles")
 public class DiaryArticleModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String title;
     private String text;
     private String imageIds;
 
-    public DiaryArticleModel(String text, String imageIds) {
+    public DiaryArticleModel(String title, String text, String imageIds) {
+        this.title = title;
         this.text = text;
         this.imageIds = imageIds;
     }
@@ -33,6 +35,14 @@ public class DiaryArticleModel {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String[] getImageIds() {

@@ -40,3 +40,16 @@
   font-style: normal;
   font-weight: 700;
 }
+
+@font-face {
+  font-family: 'RussoOne';
+  src: url(../assets/fonts/RussoOne-Regular.ttf);
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Death-Rattlebb';
+  src: url(../assets/fonts/deathrattlebb_reg.ttf);
+  font-style: normal;
+}

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface RepositoryService<T> {
     List<T> fetchAll();
-    Optional<T> fetch(String id);
+    Optional<T> fetch(Integer id);
     boolean insert(T item);
     boolean delete(String id);
 }
