@@ -171,9 +171,11 @@
           <h3>List of last few messages </h3>
           <ul id="message-container"></ul>
           <a href="/messages">All messages</a>
-          <form action="#" th:action="@{/submit-message}" th:object="${message_form}" method="post">
+          <form action="#" th:action="@{/submit-message}" th:object="${message_form}" method="post" id="message-form">
             <h3>Enter you nickname and message.</h3>
-            <input type="text" placeholder="Enter your nickname" require maxlength="24" th:field="*{userName}">
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="input-error">Error</span>
+            <input type="text" placeholder="Enter your nickname" require maxlength="24" th:field="*{username}">
+            <span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="input-error">Error</span>
             <textarea placeholder="Enter message" require maxlength="256" th:field="*{message}"></textarea>
             <button type="submit">SUBMIT</button>
           </form>

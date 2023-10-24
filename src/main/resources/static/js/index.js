@@ -2,6 +2,11 @@ $(document).ready(function() {
   // Create section deviders
   updateDeviders();
 
+  // If mesage form has input errors scroll to it instead of staying on a hero page
+  if ($('.input-error')[0]) {
+    location.href = '#message-form';
+  }
+
   // Get comments from API
   // Could have done this more simply with Model and Thymeleaf,
   // but thought that this might be fun way to do it too so I did it this way.
@@ -9,7 +14,7 @@ $(document).ready(function() {
   $.getJSON("/api/comments", {}, function (data) {
       var $ul = $('#message-container');
       $.each(data, function(idx, messageObj) {
-        var name = $('<div class="name"></div>').text(messageObj.userName);
+        var name = $('<div class="name"></div>').text(messageObj.username);
         var message = $('<div class="message"></div>').text(messageObj.message);
         var date = $('<div class="date"></div>').text(messageObj.date);
         $ul.append($('<li></li>').append(name, message, date))
