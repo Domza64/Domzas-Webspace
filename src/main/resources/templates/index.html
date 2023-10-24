@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domza64</title>
+
+    <meta name="description" content="Hello!, I am Domza, 20 yearold guy from Zadar. I Love Mountain bikes, It, Linux and much much more... Visit my website to see everything...">
+    <meta name="keywords" content="Domza, Domza64, Dominik, Juricic, Mtb, Linux, Zadar, Croatia">
+    <meta name="author" content="Dominik Juričić">
+    <meta property="og:title" content="Dominik Juričić | Domza64">
+    <meta property="og:description" content="Hello!, I am Domza, 20 yearold guy from Zadar. I Love Mountain bikes, It, Linux and much much more... Visit my website to see everything...">
+    <meta property="og:image" content="https://cdn.domza.xyz/image/cool-mtb.jpg">
+
+    <title>Dominik Juričić | Domza64</title>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/dark-page.css}"/>
@@ -11,18 +19,14 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/glitch.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/specific/index.css}"/>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-            crossorigin="anonymous">
-    </script>
 </head>
 <body>
     <header>
       <div>
-        <img th:src="@{/assets/media/images/gif/under-construction.gif}" alt="Under Construction gif">
-        <img th:src="@{assets/media/images/gif/linux.gif}" alt="Linux gif">
-        <a href="feed.xml"><img th:src="@{assets/media/images/gif/rss.gif}" alt="Rss gif"></a>
-        <img th:src="@{assets/media/images/gif/miku-approved.gif}" onclick="playMiku()" alt="Hatsune Miku gif">
+        <img src="https://cdn.domza.xyz/image/gif/under-construction.gif" alt="Under Construction gif">
+        <img src="https://cdn.domza.xyz/image/gif/linux.gif" alt="Linux gif">
+        <a href="feed.xml"><img src="https://cdn.domza.xyz/image/gif/rss.gif" alt="Rss gif"></a>
+        <img src="https://cdn.domza.xyz/image/gif/miku-approved.gif" onclick="playMiku()" alt="Hatsune Miku gif">
       </div>
     </header>
     <main>
@@ -36,7 +40,7 @@
           <ul>
             <li><a href="diary"><b>&#60;/</b>Diary<b>&#62;</b></a></li>
             <li><a href="dev-portfolio"><b>&#60;/</b>DEV Portfolio<b>&#62;</b></a></li>
-            <li><a href="photography"><b>&#60;/</b>Photographi<b>&#62;</b></a></li>
+            <li><a href="photography"><b>&#60;/</b>Photography<b>&#62;</b></a></li>
             <br>
             <li><a href="#about"><b>&#60;/</b>About me<b>&#62;</b></a></li>
             <li><a href="#guest-book"><b>&#60;/</b>Guest book<b>&#62;</b></a></li>
@@ -45,7 +49,7 @@
             <li><a href="#mtb"><b>&#60;/</b>MTB<b>&#62;</b></a></li>
           </ul>
         </nav>
-        <img th:src="@{/assets/media/images/svg/mtb-1.svg}" alt="Cool image of MTB">
+        <img src="https://cdn.domza.xyz/image/svg/mtb-1.svg" alt="Cool image of MTB">
       </section>
       <section id="about">
         <div class="section-devider testda">
@@ -60,7 +64,7 @@
               <br>
               I am Domza, 20 yearold guy from Zadar, Croatia.
               <br>
-             <q>Way too many hobbies but too litle time.. at least im never bored</q>
+              <q>Way too many hobbies but too litle time.. at least im never bored</q>
               <br>
               When I'm not sleeping, I'm usually: riding my bike or skateboard, flying drones, 
               RC cars, fixing up my bike or my TOMOS APN4, sometimes 
@@ -73,7 +77,7 @@
             </article>
             <span>Like a Diary Or Something Is <br> <a href="/diary">HERE</a></span>
           </div>
-          <img th:src="@{/assets/media/images/about-me.webp}" alt="Image of me on my bike">
+          <img src="https://cdn.domza.xyz/image/about-me.webp" alt="Image of me on my bike">
         </div>
       </section>
       <section id="programing">
@@ -149,7 +153,7 @@
           <span></span>
         </div>
         <div class="section-content">
-          <img th:src="@{/assets/media/images/svg/mtb-3.svg}" alt="Cool image of MTB">
+          <img src="https://cdn.domza.xyz/image/svg/mtb-3.svg" alt="Cool image of MTB">
           <span>
             Not much to say about MTB here <br> except that it is soo much fun.
             <br>
@@ -177,7 +181,7 @@
       </section>
     </main>
     <footer>
-      <img th:src="@{/assets/media/images/gif/thank-you-internet.gif}" alt="Cool gif of intenet">
+      <img src="https://cdn.domza.xyz/image/gif/thank-you-internet.gif" alt="Cool gif of intenet">
       <span class="hihi">&gt;_&lt;</span>
       <div class="contact">
         <span><b>- CONTACT M3 -</b></span>
@@ -187,6 +191,10 @@
      </div>
       <a href="#hero">Back to top</a>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous">
+    </script>
     <script th:src="@{/js/index.js}"></script>
 </body>
 </html>
