@@ -38,6 +38,9 @@ section .section-devider {
   max-width: 100%;
   overflow: hidden;
 }
+section .section-devider span {
+  text-wrap: nowrap;
+}
 section .section-devider h2 {
   overflow: hidden;
   min-width: -moz-max-content;
@@ -178,6 +181,16 @@ section .section-content {
   display: grid;
   gap: 4rem;
 }
+#programing .section-content .projects-grid article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: column;
+  border: 2px solid #0a310b;
+  border-style: dashed;
+  padding: 1rem;
+}
 #programing .section-content .projects-grid article h4 {
   font-weight: 500;
   margin-bottom: 1rem;
@@ -187,10 +200,27 @@ section .section-content {
   font-size: 1.2rem;
   font-weight: 300;
 }
+#programing .section-content .projects-grid article > a {
+  margin-top: 1rem;
+}
 #programing .section-content .projects-links {
+  margin-top: 5rem;
+  width: 100%;
+}
+#programing .section-content .projects-links h3 {
+  margin-bottom: 2rem;
+}
+#programing .section-content .projects-links nav {
   display: flex;
-  justify-content: space-around;
-  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+#programing .section-content .projects-links nav a {
+  min-width: -moz-max-content;
+  min-width: max-content;
+  margin: 1rem;
 }
 
 #mtb .section-content {
@@ -337,6 +367,9 @@ footer a:hover {
   }
   #message-container li {
     min-width: 50%;
+  }
+  .projects-links nav {
+    flex-direction: row !important;
   }
 }
 @media only screen and (min-width: 1001px) {

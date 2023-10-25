@@ -124,7 +124,7 @@ body main #__races .__races_container .race_container {
 }
 body main #__cover_image {
   height: 500px;
-  background-image: url(https://cdn.domza.xyz/image/mtb/mtb-img-5.jpg);
+  background-image: url(../../media/images/mtb/mtb-img-5.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
