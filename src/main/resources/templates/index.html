@@ -41,7 +41,6 @@
             <li><a href="diary"><b>&#60;/</b>Diary<b>&#62;</b></a></li>
             <li><a href="dev-portfolio"><b>&#60;/</b>DEV Portfolio<b>&#62;</b></a></li>
             <li><a href="photography"><b>&#60;/</b>Photography<b>&#62;</b></a></li>
-            <br>
             <li><a href="#about"><b>&#60;/</b>About me<b>&#62;</b></a></li>
             <li><a href="#guest-book"><b>&#60;/</b>Guest book<b>&#62;</b></a></li>
             <li><a href="#contact-info"><b>&#60;/</b>Contact<b>&#62;</b></a></li>
@@ -215,7 +214,7 @@
           <h3>List of last few messages </h3>
           <ul id="message-container"></ul>
           <a href="/messages">All messages</a>
-          <form action="#" th:action="@{/submit-message}" th:object="${message_form}" method="post" id="message-form">
+          <form action="/submit-message" th:object="${message_form}" method="POST" id="message-form">
             <h3>Enter you nickname and message.</h3>
             <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="input-error">Error</span>
             <input type="text" placeholder="Enter your nickname" require maxlength="24" th:field="*{username}">

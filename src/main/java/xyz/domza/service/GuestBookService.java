@@ -9,33 +9,26 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class GuestBookService implements RepositoryService<UserCommentModel> {
+public class GuestBookService {
 
     @Autowired
     private GuestBookRepository guestBookRepository;
 
-    @Override
     public List<UserCommentModel> fetchAll() {
         List<UserCommentModel> list = new ArrayList<>();
         guestBookRepository.findAll().forEach(list::add);
         return list;
     }
 
-    @Override
-    public Optional<UserCommentModel> fetch(Integer id) {
-        // TODO
-        return Optional.empty();
+    public Optional<UserCommentModel> fetchById(Integer id) {
+        return guestBookRepository.findById(id);
     }
 
-    @Override
-    public boolean insert(UserCommentModel item) {
-        guestBookRepository.save(item);
-        return true;
+    public void insert(UserCommentModel userCommentModel) {
+        guestBookRepository.save(userCommentModel);
     }
 
-    @Override
-    public boolean delete(String id) {
-        // TODO
-        return false;
+    public void delete(int id) {
+        guestBookRepository.deleteById(id);
     }
 }
