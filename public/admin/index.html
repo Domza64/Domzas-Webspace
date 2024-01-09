@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+
+    <title>Admin</title>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Include Admin page scripts -->
+    <script type="module" src="../assets/js/admin.js"></script>
+  </head>
+  <body>
+    <button id="fetchButton">ReFetch Data</button>
+    <button id="logout">Logout</button>
+
+    <span id="responseText"></span>
+    <table id="guestBookTable" border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Message</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="guestBookBody"></tbody>
+    </table>
+  </body>
+</html>
