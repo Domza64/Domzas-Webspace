@@ -18,7 +18,8 @@ async function handleCallback() {
   sessionStorage.setItem("auth_token", tokenResponse.access_token);
 
   sessionStorage.removeItem("oauthState");
-  window.location.href = tokenResponse.REDIRECT_URI;
+
+  window.location.href = "/admin";
 }
 
 async function exchangeCodeForToken(code) {
