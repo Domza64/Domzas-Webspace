@@ -4,6 +4,8 @@ $(document).ready(function () {
   // Create section deviders
   updateDeviders();
 
+  $("#mikuButton").on("click", playMiku);
+
   // If mesage form has input errors scroll to it instead of staying on a hero page
   if ($(".input-error")[0]) {
     location.href = "#message-form";
@@ -84,7 +86,8 @@ function deviderBuilder() {
 }
 
 var isPlaying = false;
-var audio = new Audio("../assets/media/audio/miku.mp3");
+var audio = new Audio("https://cdn.domza.xyz/sounds/miku_song.mp3");
+
 function playMiku() {
   if (!isPlaying) {
     audio.load();

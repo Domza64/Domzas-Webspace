@@ -26,8 +26,12 @@ function fetchData() {
     success: function (data) {
       renderTableArticles(data);
     },
-    error: function (status, error) {
+    error: function (xhr, status, error) {
       $("#responseText").text("Error: " + status + ", " + error);
+      if (xhr.status === 401) {
+        alert("WTF!");
+        window.location.href = "/admin";
+      }
     },
   });
 

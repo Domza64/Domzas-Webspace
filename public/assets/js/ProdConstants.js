@@ -10,4 +10,4 @@ export const TOKEN_ENDPOINT =
 export const AUTHORIZATION_ENDPOINT =
   "https://accounts.domza.xyz/realms/domza-account-dev/protocol/openid-connect/auth";
 export const UPDATE_ARTICLE_URL =
-  "http://domza-api.domza.xyz/domza/admin/updateDiaryArticle";
+  "https://domza-api.domza.xyz/domza/admin/updateDiaryArticle";
