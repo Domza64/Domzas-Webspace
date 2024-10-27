@@ -53,3 +53,68 @@
   src: url(/assets/fonts/deathrattlebb_reg.ttf);
   font-style: normal;
 }
+
+:root {
+  --background: black;
+  --green: #24b729;
+  --dark-green: #188d1c;
+  --green-shadow: #37e53c;
+}
+
+html {
+  font-family: "IBM-PlexMono", monospace !important;
+  background-color: var(--background);
+  color: var(--green);
+  -webkit-animation: glow 4s ease-in-out infinite alternate;
+  -moz-animation: glow 4s ease-in-out infinite alternate;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+a {
+  color: var(--green);
+}
+a:hover {
+  color: var(--dark-green);
+  text-shadow: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: none;
+}
+
+form > input,
+textarea {
+  background-color: black;
+  border: 2px dotted var(--green);
+  color: var(--green);
+  font-weight: 200;
+  letter-spacing: 2px;
+  padding: 0.3rem 0.6rem;
+  color: #37e53c;
+  font-weight: 300;
+  font-family: "IBM-PlexMono", monospace;
+}
+button {
+  padding: 0.4rem 1.2rem;
+  background-color: black;
+  border: 2px dotted var(--green);
+  color: var(--green);
+  width: max-content;
+  letter-spacing: 4px;
+}
+button:hover {
+  border: 2px dashed var(--green);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px var(--green-shadow);
+  }
+  to {
+    text-shadow: 0 0 15px var(--green-shadow), 0 0 15px var(--green-shadow);
+  }
+}

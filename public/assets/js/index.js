@@ -1,4 +1,7 @@
-import { GUEST_BOOK_SUBMIT_URL, GUEST_BOOK_COMMENTS_URL } from "./Constants.js";
+export const GUEST_BOOK_SUBMIT_URL =
+  "https://domza-api.domza.xyz/domza/submitGuestBookComment";
+export const GUEST_BOOK_COMMENTS_URL =
+  "https://domza-api.domza.xyz/domza/guestBookComments";
 
 $(document).ready(function () {
   // Create section deviders

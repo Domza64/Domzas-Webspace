@@ -16,16 +16,17 @@
     <meta property="og:title" content="Dominik Juričić | Domza64" />
     <meta
       property="og:description"
-      content="Hello!, I am Domza, 21 yearold guy from Zadar. I Love Mountain bikes, It, Linux and much much more... Visit my website to see everything..."
+      content="Hello!, I am Domza, 20 yearold guy from Zadar. I Love Mountain bikes, It, Linux and much much more... Visit my website to see everything..."
     />
     <meta property="og:image" content="https://cdn.domza.xyz/cool-mtb.jpg" />
 
     <title>Dominik Juričić | Domza64</title>
 
-    <link rel="stylesheet" href="assets/css/global.css" />
-    <link rel="stylesheet" href="assets/css/dark_page.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-    <link rel="stylesheet" href="assets/css/tailwind_compiled.css" />
+    <link rel="stylesheet" href="./assets/css/global.css" />
+    <link rel="stylesheet" href="./assets/css/dark-page.css" />
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
+    <link rel="stylesheet" href="./assets/css/glitch.css" />
+    <link rel="stylesheet" href="./assets/css/specific/index.css" />
 
     <link
       rel="alternate"
@@ -102,7 +103,7 @@
             <article>
               Hello World!
               <br />
-              I am Domza, 21 yearold guy from Zadar, Croatia.
+              I am Domza, 20 yearold guy from Zadar, Croatia.
               <br />
               <q
                 >Way too many hobbies but too litle time.. at least im never
@@ -193,18 +194,34 @@
               >
             </article>
             <article>
-              <h4>Domza's Motorcycle Service Tracker <span>- Webapp</span></h4>
-              <p>A webapp Im currently working on...</p>
-              <a href="https://motoservis.domza.xyz/"
-                ><b>&#60;/</b>Domza's Motoservis Tracker<b>&#62;</b></a
+              <h4>
+                QR Generator <span>- Website for generating QR Codes</span>
+              </h4>
+              <p>
+                <b>!</b> NOT FINISHED <b>!</b>
+                <br />
+                Currently not working on it because of other projects.
+              </p>
+              <a href="https://qr.domza.xyz"
+                ><b>&#60;/</b>QR Generator<b>&#62;</b></a
+              >
+            </article>
+            <article>
+              <h4>
+                Better Converter
+                <span>- Website for downloading songs from youtube</span>
+              </h4>
+              <p>
+                <b>!</b> NOT FINISHED <b>!</b>
+                <br />
+                Currently not working on it because of other projects.
+              </p>
+              <a href="https://converter.domza.xyz"
+                ><b>&#60;/</b>Better Converter<b>&#62;</b></a
               >
             </article>
             <article>
               <h4>Mystic gemstones <span>- Minecraft Mod</span></h4>
-              <span
-                >- Mostly abandoned/unfinished project at this point, but its my
-                first ever project and it is still cool.</span
-              >
               <p>
                 A mod for
                 <a
@@ -222,20 +239,31 @@
                   >Fabric Loader</a
                 >.
               </p>
-              <a
-                sttyle="underline"
-                href="https://mysticgemstonesmod.github.io/Website/"
+              <a href="https://mysticgemstonesmod.github.io/Website/"
                 ><b>&#60;/</b>Mystic Gemstones website<b>&#62;</b></a
+              >
+            </article>
+            <article>
+              <h4>Java Dungeon <span>- Simple 2d game</span></h4>
+              <p>
+                A simple 2d game made using
+                <a href="https://libgdx.com/" style="text-decoration: underline"
+                  >LibGDX</a
+                >. Not much else to say, currently not working on it because of
+                other porjects
+              </p>
+              <a href="https://github.com/Domza64/Java-Dungeon"
+                ><b>&#60;/</b>Java Dungeon<b>&#62;</b></a
               >
             </article>
             <article>
               <h4>Learning 2 Code <span>- Not really a project...</span></h4>
               <p>
                 Hmhm not really a project, still though... This consists of many
-                things, many random projects on my github. Just learning basics
-                of programing and other related IT stuff, in my case mostly
-                Java, learning Linux, Networks, Setting up servers, Git,
-                Databases and all of those little cool things.
+                things, some random projects (honorable mention to Advent of
+                Code). Also just learning general programing, for me mostly in
+                Java, learning Linux, Networks, Servers, Git, Databases and all
+                of those little cool things a programer should know.
               </p>
               <a href="https://github.com/Domza64"
                 ><b>&#60;/</b>My Github<b>&#62;</b></a
@@ -315,28 +343,21 @@
       <div id="contact" class="contact">
         <span><b>- CONTACT M3 -</b></span>
         <span
+          ><b>GSM / Signal:</b>
+          <a href="tel:+385955054865">+385 95 505 4865</a></span
+        >
+        <span
           ><b>e-mail:</b>
           <a href="mailto:juricicdominik@protonmail.com" target="_blank"
             >juricicdominik@protonmail.com</a
+          >,
+          <a href="mailto:hello@domza.xyz" target="_blank"
+            >hello@domza.xyz</a
           ></span
         >
       </div>
-      <button
-        class="bg-red-500 text-white px-4 py-2 rounded mt-4"
-        onclick="fetchData()"
-      >
-        Fetch Data
-      </button>
       <a href="#hero">Back to top</a>
     </footer>
-    <script>
-      function fetchData() {
-        fetch("/api/data")
-          .then((response) => response.json())
-          .then((data) => alert(data.message))
-          .catch((error) => console.error("Error:", error));
-      }
-    </script>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
