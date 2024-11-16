@@ -92,9 +92,6 @@
                 ><span>&#60;/</span>Programing<span>&#62;</span></a
               >
             </li>
-            <li>
-              <a href="#mtb"><span>&#60;/</span>MTB<span>&#62;</span></a>
-            </li>
           </ul>
         </nav>
         <img
@@ -210,6 +207,19 @@
               >
             </article>
             <article>
+              <h4>PixelFeed <span>- Webapp / Minecraft Mod|Plugin</span></h4>
+              <p>
+                A super cool project, like a minecraft server event tracker.
+                When plugin or mod is added to Minecraft server it sends some
+                data to the webapp which then displays user stats and server
+                events in a nice UI for everyone to see (or just users allowed
+                by the server owner).
+              </p>
+              <a href="https://pixelfeed.net"
+                ><b>&#60;/</b>PixelFeed<b>&#62;</b></a
+              >
+            </article>
+            <article>
               <h4>Domza's Motorcycle Service Tracker <span>- Webapp</span></h4>
               <p>A webapp Im currently working on...</p>
               <a href="https://motoservis.domza.xyz/"
@@ -276,20 +286,13 @@
       <section id="mtb">
         <div class="section-devider">
           <span></span>
-          <h2><b>|</b>MTB<b>|</b></h2>
+          <h2><b>|</b>C0Ol STUFF<b>|</b></h2>
           <span></span>
         </div>
         <div class="section-content">
-          <img
-            src="https://cdn.domza.xyz/svg/mtb-3.svg"
-            alt="Cool image of MTB"
-          />
           <span>
-            Not much to say about MTB here <br />
-            except that it is soo much fun.
-            <br />
-            See more <br />
-            <a href="/mtb">HERE</a>
+            Not much to say here, go see for yourself...
+            <a href="/gallery">Gallery</a>
           </span>
         </div>
       </section>
@@ -300,14 +303,15 @@
           <span></span>
         </div>
         <div class="section-content">
+          <!-- TODO - Make this server rendered with ejs so its not dependent on clientside JS -->
           <h3>List of last few messages</h3>
-          <ul id="message-container"></ul>
+          <ul id="messages"></ul>
           <a href="/messages">All messages</a>
-          <form action="/" method="POST" id="message-form">
-            <h3>Enter your nickname and message.</h3>
+          <form action="/api/guestBook" method="POST">
+            <h3>Say Hello!</h3>
             <input
               type="text"
-              name="username"
+              name="nickname"
               placeholder="Enter your nickname"
               required
               maxlength="24"
@@ -324,10 +328,6 @@
       </section>
     </main>
     <footer>
-      <img
-        src="https://cdn.domza.xyz/gif/thank-you-internet.gif"
-        alt="Cool gif of intenet"
-      />
       <span class="hihi">&gt;_&lt;</span>
       <div id="contact" class="contact">
         <span><b>- CONTACT M3 -</b></span>
@@ -350,11 +350,27 @@
     </footer>
     <script>
       function fetchData() {
-        fetch("/api/data")
+        fetch("/api/guestBook")
           .then((response) => response.json())
-          .then((data) => alert(data.message))
+          .then((data) => {
+            if (data.status === "Success") {
+              const messagesContainer = document.getElementById("messages");
+              messagesContainer.innerHTML = ""; // Clear previous content
+              data.messages.forEach((msg) => {
+                const messageDiv = document.createElement("div");
+                messageDiv.classList.add("message");
+                messageDiv.innerHTML = `
+              <strong>${msg.nickname}</strong>: ${msg.message} <em>(${msg.date})</em>
+            `;
+                messagesContainer.appendChild(messageDiv);
+              });
+            } else {
+              alert("Failed to fetch messages.");
+            }
+          })
           .catch((error) => console.error("Error:", error));
       }
+      fetchData();
     </script>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"

@@ -1,19 +1,39 @@
 const fs = require("fs");
+const sqlite3 = require("sqlite3").verbose();
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const { exec } = require("child_process");
 const livereload = require("livereload");
 const connectLivereload = require("connect-livereload");
+const { marked } = require("marked");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const db = new sqlite3.Database("./messages.db", (err) => {
+  if (err) {
+    console.error("Error opening database:", err.message);
+  } else {
+    console.log("Connected to SQLite database.");
+    db.run(`CREATE TABLE IF NOT EXISTS messages (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      nickname TEXT NOT NULL,
+      message TEXT NOT NULL,
+      date TEXT NOT NULL
+    )`);
+  }
+});
+
 // Middleware
 app.use(bodyParser.json());
 app.use(connectLivereload());
 app.use(express.static(path.join(__dirname, "../public")));
+
+// Middleware to parse form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
@@ -31,35 +51,82 @@ liveReloadServer.server.once("connection", () => {
 });
 
 // Serve a diary page with EJS
-app.get("/diary", (req, res) => {
-  // TODO - load all articles from folder and display first 10 or something like that...
-  const filePath = path.join(__dirname, "diary", "1.md");
+app.get("/diary", async (req, res) => {
+  // TODO - Make this generate this automatically on server start for production
+  // so it doesnt need to be rerendered for each request, when there is new diary
+  // article server will be restarted so that it will be rerendered
+  const dirPath = path.join(__dirname, "diary");
 
-  fs.readFile(filePath, "utf-8", (err, fileContent) => {
+  try {
+    // Get all files from the 'diary' directory
+    const files = await fs.promises.readdir(dirPath);
+
+    // Filter out only markdown files
+    const mdFiles = files.filter((file) => file.endsWith(".md")).reverse();
+
+    // Read the content of each markdown file
+    const articles = await Promise.all(
+      mdFiles.map(async (file) => {
+        const filePath = path.join(dirPath, file);
+        const content = await fs.promises.readFile(filePath, "utf-8");
+        const htmlContent = marked(content); // Convert Markdown to HTML
+        return { content: htmlContent }; // Use file name as title
+      })
+    );
+
+    // Send the articles to the EJS template
+    res.render("diary", { title: "Diary Entries", articles });
+  } catch (error) {
+    console.error("Error reading diary files:", error);
+    res.status(500).send("Error loading diary content");
+  }
+});
+
+// GET API for guest book
+app.get("/api/guestBook", (req, res) => {
+  const query = `SELECT * FROM messages`;
+
+  db.all(query, [], (err, rows) => {
     if (err) {
-      console.error("Error reading file:", err);
-      return res.status(500).send("Error loading diary content");
+      console.error("Error fetching data:", err.message);
+      return res
+        .status(500)
+        .json({ status: "Error", message: "Failed to retrieve data." });
     }
 
-    const data = {
-      title: "Special Page",
-      message: fileContent,
-    };
-
-    res.render("diary", data);
+    res.json({ status: "Success", messages: rows.reverse() });
   });
 });
 
-// Basic GET API
-app.get("/api/data", (req, res) => {
-  res.json({ message: "Hello from the backend!" });
-});
+// POST API for guest book
+app.post("/api/guestBook", (req, res) => {
+  console.log(req.body);
+  const { nickname, message } = req.body;
 
-// Basic POST API
-app.post("/api/submit", (req, res) => {
-  const { data } = req.body;
-  console.log(`Data received: ${data}`);
-  res.json({ status: "Success", received: data });
+  if (!nickname || !message) {
+    return res
+      .status(400)
+      .json({ status: "Error", message: "Nickname and message are required." });
+  }
+
+  const date = new Date().toISOString();
+
+  const query = `INSERT INTO messages (nickname, message, date) VALUES (?, ?, ?)`;
+  const params = [nickname, message, date];
+
+  db.run(query, params, function (err) {
+    if (err) {
+      console.error("Error inserting data:", err.message);
+      return res
+        .status(500)
+        .json({ status: "Error", message: "Failed to insert data." });
+    }
+
+    console.log(
+      `Data inserted: nickname=${nickname}, message=${message}, date=${date}`
+    );
+    res.redirect("/#guest-book");
+  });
 });
 
 // Webhook endpoint for automatic deployment
