@@ -1,3 +1,4 @@
+const fs = require("fs");
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -14,6 +15,10 @@ app.use(bodyParser.json());
 app.use(connectLivereload());
 app.use(express.static(path.join(__dirname, "../public")));
 
+// Set EJS as the view engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views")); // Folder for EJS templates
+
 // Start the livereload server to watch public folder
 const liveReloadServer = livereload.createServer();
 liveReloadServer.watch(path.join(__dirname, "public"));
@@ -23,6 +28,26 @@ liveReloadServer.server.once("connection", () => {
   setTimeout(() => {
     liveReloadServer.refresh("/");
   }, 100);
+});
+
+// Serve a diary page with EJS
+app.get("/diary", (req, res) => {
+  // TODO - load all articles from folder and display first 10 or something like that...
+  const filePath = path.join(__dirname, "diary", "1.md");
+
+  fs.readFile(filePath, "utf-8", (err, fileContent) => {
+    if (err) {
+      console.error("Error reading file:", err);
+      return res.status(500).send("Error loading diary content");
+    }
+
+    const data = {
+      title: "Special Page",
+      message: fileContent,
+    };
+
+    res.render("diary", data);
+  });
 });
 
 // Basic GET API

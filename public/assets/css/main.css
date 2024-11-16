@@ -503,13 +503,8 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-.my-12 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+.mb-48 {
+  margin-bottom: 12rem;
 }
 .mb-64 {
   margin-bottom: 16rem;
@@ -517,35 +512,17 @@ video {
 .mb-8 {
   margin-bottom: 2rem;
 }
-.mt-48 {
-  margin-top: 12rem;
-}
-.mb-32 {
-  margin-bottom: 8rem;
-}
-.mt-12 {
-  margin-top: 3rem;
-}
-.mt-32 {
-  margin-top: 8rem;
-}
-.mb-56 {
-  margin-bottom: 14rem;
-}
 .mt-24 {
   margin-top: 6rem;
 }
-.mb-48 {
-  margin-bottom: 12rem;
+.mt-48 {
+  margin-top: 12rem;
 }
 .flex {
   display: flex;
 }
 .hidden {
   display: none;
-}
-.h-64 {
-  height: 16rem;
 }
 .w-full {
   width: 100%;
@@ -574,28 +551,16 @@ video {
 .gap-y-0 {
   row-gap: 0px;
 }
-.bg-slate-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
-}
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-.bg-slate-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
-}
 .bg-slate-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
 }
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
+}
 .p-4 {
   padding: 1rem;
-}
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 .text-center {
   text-align: center;
@@ -603,6 +568,10 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
 }
 .text-xl {
   font-size: 1.25rem;
@@ -612,13 +581,8 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-.text-8xl {
-  font-size: 6rem;
-  line-height: 1;
+.font-black {
+  font-weight: 900;
 }
 .font-bold {
   font-weight: 700;
@@ -629,23 +593,16 @@ video {
 .font-semibold {
   font-weight: 600;
 }
-.font-black {
-  font-weight: 900;
-}
 .tracking-\[\.8em\] {
   letter-spacing: .8em;
-}
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-}
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 .text-slate-900 {
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 .underline {
   text-decoration-line: underline;
