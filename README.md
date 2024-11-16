@@ -40,8 +40,7 @@ sudo npm install -g pm2
 
 For development, you'll want to run the server and the Tailwind CSS compiler.
 
-- `npm run build:css`: Compiles and watches Tailwind CSS files.
-- `npx nodemon`: Run the Node Server.
+- `npm run dev`: Starts dev server | Compiles and watches Tailwind CSS files.
 
 ## Production
 

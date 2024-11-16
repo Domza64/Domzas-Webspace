@@ -1,0 +1,11 @@
+/* Gallery */
+
+@font-face {
+  font-family: "Death-Rattlebb";
+  src: url(/assets/fonts/deathrattlebb_reg.ttf);
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Death-Rattlebb";
+}

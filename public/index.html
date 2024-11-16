@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-page">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,10 +22,8 @@
 
     <title>Dominik Juričić | Domza64</title>
 
-    <link rel="stylesheet" href="assets/css/global.css" />
-    <link rel="stylesheet" href="assets/css/dark_page.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-    <link rel="stylesheet" href="assets/css/tailwind_compiled.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/dark-page.css" />
 
     <link
       rel="alternate"
@@ -35,8 +33,8 @@
     />
   </head>
   <body>
-    <header>
-      <div>
+    <header class="w-full p-4">
+      <div class="mx-auto flex flex-wrap gap-2 justify-center">
         <img
           src="https://cdn.domza.xyz/gif/under-construction.gif"
           alt="Under Construction gif"
@@ -53,40 +51,54 @@
       </div>
     </header>
     <main>
-      <section id="hero">
-        <div class="title">
-          <span class="glitch" data-text="[!]">[!]</span>
-          <h1 class="glitch" data-text="Welcome to my website">
-            Welcome to my website
-          </h1>
-          <span class="hide-mobile">[!]</span>
+      <section class="mt-48 mb-64 p-4">
+        <div
+          class="flex flex-col items-center text-center md:flex-row gap-2 text-4xl mb-8"
+        >
+          <span class="font-bold">[!]</span>
+          <h1 class="font-extralight">Welcome to my website</h1>
+          <span class="font-bold hidden md:block">[!]</span>
         </div>
-        <nav>
-          <ul>
+        <nav class="hero-nav">
+          <ul
+            class="flex gap-4 text-xl max-w-xl flex-wrap justify-center gap-y-0"
+          >
             <li>
-              <a href="diary"><b>&#60;/</b>Diary<b>&#62;</b></a>
+              <a href="diary"> <span>&#60;/</span>Diary<span>&#62;</span> </a>
             </li>
             <li>
-              <a href="portfolio"><b>&#60;/</b>DEV Portfolio<b>&#62;</b></a>
+              <a href="gallery"><span>&#60;/</span>Gallery<span>&#62;</span></a>
             </li>
             <li>
-              <a href="#about"><b>&#60;/</b>About me<b>&#62;</b></a>
+              <a href="portfolio"
+                ><span>&#60;/</span>DEV Portfolio<span>&#62;</span></a
+              >
             </li>
             <li>
-              <a href="#guest-book"><b>&#60;/</b>Guest book<b>&#62;</b></a>
+              <a href="#about"><span>&#60;/</span>About me<span>&#62;</span></a>
             </li>
             <li>
-              <a href="#contact"><b>&#60;/</b>Contact<b>&#62;</b></a>
+              <a href="#guest-book"
+                ><span>&#60;/</span>Guest book<span>&#62;</span></a
+              >
             </li>
             <li>
-              <a href="#programing"><b>&#60;/</b>Programing<b>&#62;</b></a>
+              <a href="#contact"
+                ><span>&#60;/</span>Contact<span>&#62;</span></a
+              >
             </li>
             <li>
-              <a href="#mtb"><b>&#60;/</b>MTB<b>&#62;</b></a>
+              <a href="#programing"
+                ><span>&#60;/</span>Programing<span>&#62;</span></a
+              >
+            </li>
+            <li>
+              <a href="#mtb"><span>&#60;/</span>MTB<span>&#62;</span></a>
             </li>
           </ul>
         </nav>
         <img
+          class="hidden"
           src="https://cdn.domza.xyz/svg/mtb-1.svg"
           alt="Cool image of MTB"
         />
@@ -94,7 +106,11 @@
       <section id="about">
         <div class="section-devider">
           <span></span>
-          <h2><b>|</b>ABOUT M3<b>|</b></h2>
+          <h2>
+            <span class="font-bold">|</span>ABOUT M3<span class="font-bold"
+              >|</span
+            >
+          </h2>
           <span></span>
         </div>
         <div class="section-content">
@@ -125,6 +141,7 @@
             >
           </div>
           <img
+            src="/assets/images/gallery_9.jpg"
             src="https://cdn.domza.xyz/about-me.webp"
             alt="Image of me on my bike"
           />
@@ -321,12 +338,14 @@
           ></span
         >
       </div>
-      <button
-        class="bg-red-500 text-white px-4 py-2 rounded mt-4"
-        onclick="fetchData()"
+      <span
+        >CSS CRT effect from
+        <a
+          class="underline"
+          href="http://aleclownes.com/2017/02/01/crt-display.html"
+          >aleclownes.com</a
+        ></span
       >
-        Fetch Data
-      </button>
       <a href="#hero">Back to top</a>
     </footer>
     <script>
