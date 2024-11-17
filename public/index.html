@@ -33,7 +33,7 @@
     />
   </head>
   <body>
-    <header class="w-full p-4">
+    <header class="w-full p-4 index-header">
       <div class="mx-auto flex flex-wrap gap-2 justify-center">
         <img
           src="https://cdn.domza.xyz/gif/under-construction.gif"
@@ -51,9 +51,12 @@
       </div>
     </header>
     <main>
-      <section class="mt-48 mb-64 p-4">
+      <section
+        id="hero"
+        class="mt-20 md:mt-48 mb-16 md:mb-64 p-4 flex flex-col items-center"
+      >
         <div
-          class="flex flex-col items-center text-center md:flex-row gap-2 text-4xl mb-8"
+          class="flex flex-col items-center text-center md:flex-row gap-2 text-4xl lg:text-5xl mb-8"
         >
           <span class="font-bold">[!]</span>
           <h1 class="font-extralight">Welcome to my website</h1>
@@ -61,7 +64,7 @@
         </div>
         <nav class="hero-nav">
           <ul
-            class="flex gap-4 text-xl max-w-xl flex-wrap justify-center gap-y-0"
+            class="flex gap-4 text-xl lg:text-2xl max-w-2xl flex-wrap justify-center gap-y-0"
           >
             <li>
               <a href="diary"> <span>&#60;/</span>Diary<span>&#62;</span> </a>
@@ -94,11 +97,6 @@
             </li>
           </ul>
         </nav>
-        <img
-          class="hidden"
-          src="https://cdn.domza.xyz/svg/mtb-1.svg"
-          alt="Cool image of MTB"
-        />
       </section>
       <section id="about">
         <div class="section-devider">
@@ -110,36 +108,40 @@
           </h2>
           <span></span>
         </div>
-        <div class="section-content">
-          <div class="about-text">
-            <article>
-              Hello World!
-              <br />
-              I am Domza, 21 yearold guy from Zadar, Croatia.
-              <br />
+        <div
+          class="flex flex-col md:flex-row w-full max-w-7xl gap-6 mx-auto justify-between items-center p-4"
+        >
+          <div class="max-w-2xl">
+            <article class="flex flex-col gap-4 mb-4">
+              <span class="font-normal text-lg">Hello World!</span><br />
+              I am Dominik (Domza64), 21 yearold guy from Zadar, Croatia.
               <q
-                >Way too many hobbies but too litle time.. at least im never
-                bored</q
+                >Way too many hobbies but never quite enough hours to dive into
+                them all... at least I'm never bored</q
               >
-              <br />
-              When I'm not sleeping, I'm usually: riding my bike or skateboard,
-              flying drones, RC cars, fixing up my bike or my TOMOS APN4,
-              sometimes I go out for a night drive and just listen to music or
-              enjoy silence, I also have a job and even a few friends :). And
-              then... best of all, theres linux, computers, thinkpads,
-              programing and all that cool stuff.
-              <br />
-              I use Arch btw
-              <br />
+              When I'm not passed out, you'll usually find me tearing around on
+              my Yamaha WR 125X, skating, MTB street riding or wrenching on my
+              TOMOS APN4 (or whatever part of it needs fixing that day).
+              Sometimes it's just me, the road, and some late-night music—or
+              maybe just the quiet. I've got FPV drones and Wings to fly, RC
+              cars to mess with, a print shop job that's on its way out (college
+              life incoming!), and yeah, even a few friends. And then there's
+              the good stuff: Linux, ThinkPads, programming, and all the endless
+              tech rabbit holes I love getting lost in.
             </article>
-            <span
-              >Like a Diary Or Something Is <br />
-              <a href="/diary">HERE</a></span
+            <span class="text-xl"
+              >Like a Diary Or Something Is Here:
+              <a href="/diary" class="font-light"
+                ><span class="font-bold">&#60;/</span>Diary<span
+                  class="font-bold"
+                  >&#62;</span
+                ></a
+              ></span
             >
           </div>
           <img
+            class="w-64 mt-8 md:mt-0"
             src="/assets/images/gallery_9.jpg"
-            src="https://cdn.domza.xyz/about-me.webp"
             alt="Image of me on my bike"
           />
         </div>
@@ -150,43 +152,60 @@
           <h2><b>|</b>PR0GRAM1NG<b>|</b></h2>
           <span></span>
         </div>
-        <div class="section-content">
-          <div class="about-programing">
-            <h3>About Me And Programing</h3>
-            <h4>Early days:</h4>
-            <p>
-              I became interested in programing when I was around 13-14 years
-              old. Back then I was really stupid, I was just a kid that wanted
-              to make his own vido games. I was also interested in electronics
-              so I was kind of playing arround with programing arduino boards
-              (just basic blinking leds and basic stuff...).
-            </p>
-            <h4>How I actually started:</h4>
-            <p>
-              Since I was also interested in photography and video making, I
-              unfortunatelly never really got into programming... Not until
-              arround 2 years ago when I was arround 18 years old.
-              <br />
-              Because of other hobbyes and obligations I wasnt really making a
-              lot of progress, but I was slowly learing and enjoying every
-              second of it (except few million bugs and keyboard braking
-              moments).
-              <br />
-            </p>
-            <h4>Where am I at now?</h4>
-            <p>
-              Still have a lot to learn and ofcourse allways will have so much
-              more to learn but if you are interested in my current knowlage and
-              experience, check out these projects and my
-              <a href="/dev-portfolio"
-                ><b>&#60;/</b>DEV portfolio<b>&#62;</b></a
-              >
-              page.
-            </p>
-          </div>
-          <h3><b>-[</b> Some Of My Projects <b>]-</b></h3>
-          <div class="projects-grid">
+        <div class="bg--400 max-w-7xl mx-auto p-4">
+          <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-medium" style="font-variant: petite-caps">
+              How I started?
+            </h3>
             <article>
+              <h4 class="font-medium text-lg">Early days:</h4>
+              <p>
+                I became interested in programing when I was around 13-14 years
+                old. Back then I was really stupid, I was just a kid that wanted
+                to make his own vido games. I was also interested in electronics
+                so I was kind of playing arround with programing arduino boards
+                (just basic blinking leds and basic stuff...).
+              </p>
+            </article>
+            <article>
+              <h4 class="font-medium text-lg">How I actually got started:</h4>
+              <p>
+                Since I was also interested in photography and video making, I
+                unfortunatelly never really got into programming... Not until
+                late 2021 when I was arround 18 years old.
+                <br />
+                Because of other hobbyes and obligations I wasn't really making
+                a lot of progress, but I was slowly learing and enjoying every
+                second of it (except few million bugs and keyboard braking
+                moments).
+                <br />
+              </p>
+            </article>
+            <article>
+              <h4 class="font-medium text-lg">Where am I at now?</h4>
+              <p>
+                Still have a lot to learn and ofcourse allways will have so much
+                more to learn but if you are interested in my current knowlage
+                and experience, check out these projects and my
+                <a href="/dev-portfolio"
+                  ><span class="font-bold">&#60;/</span>DEV portfolio<span
+                    class="font-bold"
+                    >&#62;</span
+                  ></a
+                >
+                page.
+              </p>
+            </article>
+          </div>
+          <h3
+            class="mt-32 mb-16 text-2xl md:text-3xl font-normal text-center"
+            style="font-variant: petite-caps"
+          >
+            <span class="font-bold">-[</span> Some Of My Projects
+            <span class="font-bold">]-</span>
+          </h3>
+          <div class="projects-grid grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <article class="">
               <h4>Domza.xyz <span>- This website</span></h4>
               <p>
                 My personal website, I just made it for fun like all other
@@ -194,16 +213,8 @@
                 just some random social media accounts, here I have the freedome
                 to do whatever I want, however I want.
               </p>
-              <p>
-                Some basic info about it: It's running on Debian Linux server,
-                uses Nginx as proxy because same server also runs my other
-                websites. Frontend is just simple HTML, CSS, Java Script with a
-                little bit of Jquerry for sending requests to API on the backend
-                that then returns some info from database. I am also using Nginx
-                as a CDN for serving images on this website.
-              </p>
               <a href="https://github.com/Domza64/Domzas-Webspace"
-                ><b>&#60;/</b>Code on Github<b>&#62;</b></a
+                ><span>&#60;/</span>Code on Github<span>&#62;</span></a
               >
             </article>
             <article>
@@ -216,14 +227,16 @@
                 by the server owner).
               </p>
               <a href="https://pixelfeed.net"
-                ><b>&#60;/</b>PixelFeed<b>&#62;</b></a
+                ><span>&#60;/</span>PixelFeed<span>&#62;</span></a
               >
             </article>
             <article>
               <h4>Domza's Motorcycle Service Tracker <span>- Webapp</span></h4>
               <p>A webapp Im currently working on...</p>
               <a href="https://motoservis.domza.xyz/"
-                ><b>&#60;/</b>Domza's Motoservis Tracker<b>&#62;</b></a
+                ><span>&#60;/</span>Domza's Motoservis Tracker<span
+                  >&#62;</span
+                ></a
               >
             </article>
             <article>
@@ -252,7 +265,7 @@
               <a
                 sttyle="underline"
                 href="https://mysticgemstonesmod.github.io/Website/"
-                ><b>&#60;/</b>Mystic Gemstones website<b>&#62;</b></a
+                ><span>&#60;/</span>Mystic Gemstones<span>&#62;</span></a
               >
             </article>
             <article>
@@ -265,20 +278,36 @@
                 Databases and all of those little cool things.
               </p>
               <a href="https://github.com/Domza64"
-                ><b>&#60;/</b>My Github<b>&#62;</b></a
+                ><span>&#60;/</span>My Github<span>&#62;</span></a
               >
             </article>
           </div>
           <div class="projects-links">
-            <h3><b>-[</b> Some Links <b>]-</b></h3>
-            <nav>
+            <h3
+              class="my-8 text-2xl md:text-3xl font-normal text-center"
+              style="font-variant: petite-caps"
+            >
+              <span class="font-bold">-[</span> Some Links
+              <span class="font-bold">]-</span>
+            </h3>
+            <nav class="flex text-center justify-center flex-wrap gap-4">
               <a href="https://github.com/Domza64"
-                ><b>&#60;/</b>Github<b>&#62;</b></a
+                ><span class="font-bold">&#60;/</span>Github<span
+                  class="font-bold"
+                  >&#62;</span
+                ></a
               >
               <a href="/dev-portfolio"
-                ><b>&#60;/</b>DEV Portfolio<b>&#62;</b></a
+                ><span class="font-bold">&#60;/</span>DEV Portfolio<span
+                  >&#62;</span
+                ></a
               >
-              <a href="/projects"><b>&#60;/</b>More projects<b>&#62;</b></a>
+              <a href="/projects"
+                ><span class="font-bold">&#60;/</span>More projects<span
+                  class="font-bold"
+                  >&#62;</span
+                ></a
+              >
             </nav>
           </div>
         </div>
@@ -289,10 +318,16 @@
           <h2><b>|</b>C0Ol STUFF<b>|</b></h2>
           <span></span>
         </div>
-        <div class="section-content">
-          <span>
+        <div class="flex justify-center">
+          <span class="text-2xl my-24 text-center">
             Not much to say here, go see for yourself...
-            <a href="/gallery">Gallery</a>
+            <br class="md:hidden" />
+            <a href="/gallery"
+              ><span class="font-bold">&#60;/</span>Gallery<span
+                class="font-bold"
+                >&#62;</span
+              ></a
+            >
           </span>
         </div>
       </section>
@@ -302,35 +337,43 @@
           <h2><b>|</b>GUEST BOOK<b>|</b></h2>
           <span></span>
         </div>
-        <div class="section-content">
+        <div class="flex flex-col gap-4 items-center max-w-3xl mx-auto p-4">
           <!-- TODO - Make this server rendered with ejs so its not dependent on clientside JS -->
-          <h3>List of last few messages</h3>
-          <ul id="messages"></ul>
-          <a href="/messages">All messages</a>
-          <form action="/api/guestBook" method="POST">
-            <h3>Say Hello!</h3>
+          <h3 class="text-left w-full font-normal text-lg">Messages:</h3>
+          <ul
+            class="w-full flex flex-col gap-4 message-container"
+            id="messages"
+          ></ul>
+          <form
+            class="flex mt-8 flex-col w-full max-w-96 gap-2 items-center"
+            action="/api/guestBook"
+            method="POST"
+          >
+            <h3 class="text-lg font-normal">Say Hello!</h3>
             <input
               type="text"
               name="nickname"
               placeholder="Enter your nickname"
               required
               maxlength="24"
+              class="w-full"
             />
             <textarea
               name="message"
               placeholder="Enter message"
               required
               maxlength="256"
+              class="w-full"
             ></textarea>
             <button type="submit">SUBMIT</button>
           </form>
         </div>
       </section>
     </main>
-    <footer>
-      <span class="hihi">&gt;_&lt;</span>
-      <div id="contact" class="contact">
-        <span><b>- CONTACT M3 -</b></span>
+    <footer class="flex flex-col items-center gap-4 p-4">
+      <span class="my-12 font-medium">&gt;_&lt;</span>
+      <div id="contact" class="flex flex-col gap-2 items-center">
+        <span class="font-normal text-lg">- CONTACT M3 -</span>
         <span
           ><b>e-mail:</b>
           <a href="mailto:juricicdominik@protonmail.com" target="_blank"
@@ -338,15 +381,16 @@
           ></span
         >
       </div>
-      <span
-        >CSS CRT effect from
+      <hr class="max-w-64 w-full border-1 my-4 border-green-500" />
+      <span class="text-center"
+        >Cool CSS CRT effect from:
         <a
           class="underline"
           href="http://aleclownes.com/2017/02/01/crt-display.html"
           >aleclownes.com</a
         ></span
       >
-      <a href="#hero">Back to top</a>
+      <a href="#hero" class="underline">Back to top</a>
     </footer>
     <script>
       function fetchData() {
@@ -357,7 +401,7 @@
               const messagesContainer = document.getElementById("messages");
               messagesContainer.innerHTML = ""; // Clear previous content
               data.messages.forEach((msg) => {
-                const messageDiv = document.createElement("div");
+                const messageDiv = document.createElement("li");
                 messageDiv.classList.add("message");
                 messageDiv.innerHTML = `
               <strong>${msg.nickname}</strong>: ${msg.message} <em>(${msg.date})</em>

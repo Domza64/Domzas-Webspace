@@ -94,7 +94,20 @@ app.get("/api/guestBook", (req, res) => {
         .json({ status: "Error", message: "Failed to retrieve data." });
     }
 
-    res.json({ status: "Success", messages: rows.reverse() });
+    // Format dates
+    const formattedMessages = rows.reverse().map((row) => {
+      const formattedDate = new Date(row.date).toLocaleString("en-US", {
+        timeZone: "America/New_York", // Replace with your desired timezone
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      return { ...row, date: formattedDate };
+    });
+
+    res.json({ status: "Success", messages: formattedMessages });
   });
 });
 

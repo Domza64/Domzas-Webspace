@@ -26,13 +26,60 @@ form button {
   color: var(--green-shadow);
   border: #37e53c dotted 2px;
   padding: 6px;
+}
+
+.message-container li {
+  border-bottom: var(--dark-green) dotted 2px;
+  padding: 6px;
   border-radius: 0.1em;
+}
+
+a:hover {
+  color: var(--dark-green);
 }
 
 form button {
   padding: 6px 16px;
   letter-spacing: 10px;
   max-width: max-content;
+}
+
+.section-devider {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0rem;
+  font-weight: 200;
+  max-width: 100%;
+  overflow: hidden;
+}
+.section-devider span {
+  text-wrap: nowrap;
+}
+.section-devider h2 {
+  overflow: hidden;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  font-weight: 200;
+  font-size: 1.6rem;
+  letter-spacing: 16px;
+}
+.section-devider h2 b {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.section-devider span {
+  overflow: hidden;
+}
+.section-devider span b {
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 801px) {
+  .section-devider {
+    flex-direction: row !important;
+  }
 }
 
 @keyframes flicker {
@@ -186,6 +233,7 @@ form button {
       -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
 }
+
 body::after {
   content: " ";
   display: block;
