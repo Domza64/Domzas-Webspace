@@ -7,14 +7,14 @@
 
     <link rel="stylesheet" href="/assets/css/dark-page.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/diary.css" />
   </head>
   <body>
-    <h1>Diary</h1>
-    <ul>
+    <h1 class="text-center font-normal text-3xl">Diary</h1>
+    <ul class="flex flex-col gap-8 max-w-7xl mx-auto">
       <% articles.forEach(article => { %>
       <li>
-        <div><%- article.content %></div>
-        <!-- Render HTML content -->
+        <article><%- article.content %></article>
       </li>
       <% }); %>
     </ul>

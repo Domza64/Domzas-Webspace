@@ -51,18 +51,26 @@ liveReloadServer.server.once("connection", () => {
 });
 
 // Serve a diary page with EJS
+/*
+  TODO - Make this generate this automatically on server start for production
+  so it doesnt need to be rerendered for each request, when there is new diary
+  article server will be restarted so that it will be rerendered
+*/
 app.get("/diary", async (req, res) => {
-  // TODO - Make this generate this automatically on server start for production
-  // so it doesnt need to be rerendered for each request, when there is new diary
-  // article server will be restarted so that it will be rerendered
   const dirPath = path.join(__dirname, "diary");
 
   try {
     // Get all files from the 'diary' directory
     const files = await fs.promises.readdir(dirPath);
 
-    // Filter out only markdown files
-    const mdFiles = files.filter((file) => file.endsWith(".md")).reverse();
+    // Filter out only markdown files and sort them by numeric part (descending)
+    const mdFiles = files
+      .filter((file) => file.endsWith(".md"))
+      .sort((a, b) => {
+        const numA = parseInt(a.replace(".md", ""), 10);
+        const numB = parseInt(b.replace(".md", ""), 10);
+        return numB - numA; // Sort from largest to smallest
+      });
 
     // Read the content of each markdown file
     const articles = await Promise.all(
@@ -70,7 +78,7 @@ app.get("/diary", async (req, res) => {
         const filePath = path.join(dirPath, file);
         const content = await fs.promises.readFile(filePath, "utf-8");
         const htmlContent = marked(content); // Convert Markdown to HTML
-        return { content: htmlContent }; // Use file name as title
+        return { title: file.replace(".md", ""), content: htmlContent }; // Use file name as title
       })
     );
 
