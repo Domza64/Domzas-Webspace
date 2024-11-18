@@ -1,0 +1,37 @@
+name: Deploy Docker image to VPS
+
+on:
+  push:
+    branches:
+      - main # Trigger on push to the main branch (you can change this)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: SSH into VPS and deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            # Navigate to the project directory
+            cd ~/webspace
+
+            # Pull the latest changes from GitHub
+            git pull origin main
+
+            # Ensure Docker Compose is up-to-date (optional)
+            docker-compose pull
+
+            # Rebuild and restart the application using Docker Compose
+            docker-compose up -d --build
+
+            # Optionally, remove old images if you want to clean up unused images
+            docker image prune -f
+          EOF

@@ -300,6 +300,6 @@ body::before {
 }
 @font-face {
   font-family: "IBM-PlexMono";
-  src: url(/ssets/fonts/IBM_PlexMono/IBMPlexMono-Bold.ttf);
+  src: url(/assets/fonts/IBM_PlexMono/IBMPlexMono-Bold.ttf);
   font-weight: 700;
 }

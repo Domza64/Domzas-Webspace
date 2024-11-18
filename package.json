@@ -9,25 +9,24 @@
     "watch:css": "postcss src/css/main.css -o public/assets/css/main.css --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Domza64",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.4.20",
     "body-parser": "^1.20.3",
-    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "marked": "^15.0.0",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.15"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
     "concurrently": "^9.1.0",
     "connect-livereload": "^0.6.1",
     "livereload": "^0.9.3",
     "nodemon": "^3.1.7",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.49",
-    "postcss-cli": "^11.0.0",
-    "tailwindcss": "^3.4.15"
+    "npm-run-all": "^2.1.0"
   }
 }

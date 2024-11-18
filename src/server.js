@@ -3,21 +3,26 @@ const sqlite3 = require("sqlite3").verbose();
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const { exec } = require("child_process");
-const livereload = require("livereload");
-const connectLivereload = require("connect-livereload");
 const { marked } = require("marked");
-require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const db = new sqlite3.Database("./messages.db", (err) => {
+// Use the DB_PATH environment variable to specify the database file path
+var dbPath =
+  process.env.DB_PATH || path.join(__dirname, "data", "guest_book.db");
+
+if (process.env.NODE_ENV != "production") {
+  dbPath = "./guest_book.db";
+  isDevServer();
+}
+
+const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error("Error opening database:", err.message);
   } else {
     console.log("Connected to SQLite database.");
-    db.run(`CREATE TABLE IF NOT EXISTS messages (
+    db.run(`CREATE TABLE IF NOT EXISTS guest_book (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       nickname TEXT NOT NULL,
       message TEXT NOT NULL,
@@ -28,7 +33,6 @@ const db = new sqlite3.Database("./messages.db", (err) => {
 
 // Middleware
 app.use(bodyParser.json());
-app.use(connectLivereload());
 app.use(express.static(path.join(__dirname, "../public")));
 
 // Middleware to parse form data
@@ -38,17 +42,6 @@ app.use(express.json());
 // Set EJS as the view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views")); // Folder for EJS templates
-
-// Start the livereload server to watch public folder
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, "public"));
-
-// Notify browser of changes
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
 
 // Serve a diary page with EJS
 /*
@@ -92,7 +85,7 @@ app.get("/diary", async (req, res) => {
 
 // GET API for guest book
 app.get("/api/guestBook", (req, res) => {
-  const query = `SELECT * FROM messages`;
+  const query = `SELECT * FROM guest_book`;
 
   db.all(query, [], (err, rows) => {
     if (err) {
@@ -132,7 +125,7 @@ app.post("/api/guestBook", (req, res) => {
 
   const date = new Date().toISOString();
 
-  const query = `INSERT INTO messages (nickname, message, date) VALUES (?, ?, ?)`;
+  const query = `INSERT INTO guest_book (nickname, message, date) VALUES (?, ?, ?)`;
   const params = [nickname, message, date];
 
   db.run(query, params, function (err) {
@@ -150,27 +143,24 @@ app.post("/api/guestBook", (req, res) => {
   });
 });
 
-// Webhook endpoint for automatic deployment
-app.post("/updateWebhook", (req, res) => {
-  const payload = req.body;
-  if (payload && payload.ref === "refs/heads/main") {
-    exec(
-      "git pull && npm install && pm2 restart all",
-      (error, stdout, stderr) => {
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return res.status(500).send("Deployment failed");
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-        res.status(200).send("Deployed successfully");
-      }
-    );
-  } else {
-    res.status(400).send("Not the main branch");
-  }
-});
-
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );
+
+function isDevServer() {
+  const livereload = require("livereload");
+  const connectLivereload = require("connect-livereload");
+
+  app.use(connectLivereload());
+
+  // Start the livereload server to watch public folder
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.watch(path.join(__dirname, "public"));
+
+  // Notify browser of changes
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
+}

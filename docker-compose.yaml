@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./sqlite_db:/data # Mount the shared volume at /data in the web container
+    environment:
+      - DB_PATH=/data/guest_book.db # Path to the SQLite DB file inside the container
+      - NODE_ENV=production
+
+volumes:
+  sqlite_db:

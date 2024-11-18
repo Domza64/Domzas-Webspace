@@ -1,0 +1,2 @@
+# Ignore main.css file (This is compiled tailwind from /src/css/main.css so it's not needed since it will be compiled on build)
+/public/assets/css/main.css
