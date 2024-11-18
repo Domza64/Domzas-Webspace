@@ -52,7 +52,6 @@
     </header>
     <main>
       <section
-        id="hero"
         class="mt-20 md:mt-48 mb-16 md:mb-64 p-4 flex flex-col items-center"
       >
         <div
@@ -187,7 +186,7 @@
                 Still have a lot to learn and ofcourse allways will have so much
                 more to learn but if you are interested in my current knowlage
                 and experience, check out these projects and my
-                <a href="/dev-portfolio"
+                <a href="/portfolio"
                   ><span class="font-bold">&#60;/</span>DEV portfolio<span
                     class="font-bold"
                     >&#62;</span
@@ -205,7 +204,7 @@
             <span class="font-bold">]-</span>
           </h3>
           <div class="projects-grid grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <article class="">
+            <article>
               <h4>Domza.xyz <span>- This website</span></h4>
               <p>
                 My personal website, I just made it for fun like all other
@@ -292,19 +291,13 @@
             </h3>
             <nav class="flex text-center justify-center flex-wrap gap-4">
               <a href="https://github.com/Domza64"
-                ><span class="font-bold">&#60;/</span>Github<span
+                ><span class="font-bold">&#60;/</span>My Github<span
                   class="font-bold"
                   >&#62;</span
                 ></a
               >
-              <a href="/dev-portfolio"
+              <a href="/portfolio"
                 ><span class="font-bold">&#60;/</span>DEV Portfolio<span
-                  >&#62;</span
-                ></a
-              >
-              <a href="/projects"
-                ><span class="font-bold">&#60;/</span>More projects<span
-                  class="font-bold"
                   >&#62;</span
                 ></a
               >
@@ -370,8 +363,8 @@
         </div>
       </section>
     </main>
-    <footer class="flex flex-col items-center gap-4 p-4">
-      <span class="my-12 font-medium">&gt;_&lt;</span>
+    <footer class="flex flex-col items-center gap-2 p-4">
+      <span class="my-10 text-lg font-medium">&gt;_&lt;</span>
       <div id="contact" class="flex flex-col gap-2 items-center">
         <span class="font-normal text-lg">- CONTACT M3 -</span>
         <span
@@ -381,16 +374,33 @@
           ></span
         >
       </div>
-      <hr class="max-w-64 w-full border-1 my-4 border-green-500" />
-      <span class="text-center"
-        >Cool CSS CRT effect from:
-        <a
-          class="underline"
-          href="http://aleclownes.com/2017/02/01/crt-display.html"
-          >aleclownes.com</a
-        ></span
-      >
-      <a href="#hero" class="underline">Back to top</a>
+      <hr
+        class="max-w-96 w-full border-1 my-2 border-green-500 border-dashed"
+      />
+      <span class="font-normal text-lg">- Credits -</span>
+      <div class="flex gap-8 flex-wrap">
+        <div
+          class="flex gap-2 flex-col items-center bg-gray-900 rounded py-1 px-2"
+        >
+          <span>Inspiration</span>
+          <a href="https://neocities.org"
+            ><img
+              src="assets/images/neocities_button.gif"
+              alt="Neocities web button"
+          /></a>
+        </div>
+        <div
+          class="flex gap-2 flex-col items-center bg-gray-900 rounded py-1 px-2"
+        >
+          <span>Cool CSS CRT effect </span>
+          <a
+            class="underline"
+            href="http://aleclownes.com/2017/02/01/crt-display.html"
+            >aleclownes.com</a
+          >
+        </div>
+      </div>
+      <a href="#" class="underline mt-8">Back to top</a>
     </footer>
     <script>
       function fetchData() {

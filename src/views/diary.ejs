@@ -10,13 +10,29 @@
     <link rel="stylesheet" href="/assets/css/diary.css" />
   </head>
   <body>
-    <h1 class="text-center font-normal text-3xl">Diary</h1>
-    <ul class="flex flex-col gap-8 max-w-7xl mx-auto">
-      <% articles.forEach(article => { %>
-      <li>
-        <article><%- article.content %></article>
-      </li>
-      <% }); %>
-    </ul>
+    <header class="flex justify-center p-4">
+      <a href="/" class="text-lg font-normal">&#60;- Go back</a>
+    </header>
+    <main>
+      <section class="text-center my-48">
+        <h1 class="text-center font-light text-5xl mb-4">- My Diary -</h1>
+        <span class="text-lg"
+          >Newest articles are on top, the more you scroll down the older
+          articles you will find...</span
+        >
+      </section>
+      <ul class="flex flex-col gap-8 max-w-5xl mx-auto my-8">
+        <% articles.forEach(article => { %>
+        <li>
+          <article><%- article.content %></article>
+        </li>
+        <% }); %>
+      </ul>
+    </main>
+    <footer class="flex flex-col items-center p-4">
+      <span class="text-lg">You have reached the end!</span>
+      <span>Have a nice day!</span>
+      <a href="#" class="underline mt-6">Back to top</a>
+    </footer>
   </body>
 </html>
