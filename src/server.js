@@ -49,6 +49,15 @@ app.set("views", path.join(__dirname, "views")); // Folder for EJS templates
   so it doesnt need to be rerendered for each request, when there is new diary
   article server will be restarted so that it will be rerendered
 */
+// Custom renderer to add `loading="lazy"`
+const renderer = new marked.Renderer();
+renderer.image = function (image) {
+  return `<img src="${image.href}" alt="${image.text}" loading="lazy" />`;
+};
+
+// Set the renderer for marked
+marked.setOptions({ renderer });
+
 app.get("/diary", async (req, res) => {
   const dirPath = path.join(__dirname, "diary");
 
@@ -76,7 +85,7 @@ app.get("/diary", async (req, res) => {
     );
 
     // Send the articles to the EJS template
-    res.render("diary", { title: "Diary Entries", articles });
+    res.render("diary", { articles });
   } catch (error) {
     console.error("Error reading diary files:", error);
     res.status(500).send("Error loading diary content");

@@ -29,6 +29,9 @@ jobs:
             # Ensure Docker Compose is up-to-date (optional)
             docker-compose pull
 
+            # Stop and remove any existing containers
+            docker-compose down
+
             # Rebuild and restart the application using Docker Compose
             docker-compose up -d --build
 
