@@ -4,6 +4,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const { marked } = require("marked");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -122,34 +123,69 @@ app.get("/api/guestBook", (req, res) => {
 });
 
 // POST API for guest book
-app.post("/api/guestBook", (req, res) => {
-  console.log(req.body);
-  const { nickname, message } = req.body;
+app.post("/api/guestBook", async (req, res) => {
+  const turnstileSecret = process.env.TURNSTILE_SECRET;
+  const { nickname, message, "cf-turnstile-response": token } = req.body;
 
-  if (!nickname || !message) {
-    return res
-      .status(400)
-      .json({ status: "Error", message: "Nickname and message are required." });
+  // Turnstile injects a token in "cf-turnstile-response".
+  const ip = req.headers["CF-Connecting-IP"] || req.ip;
+
+  // Validate required fields
+  if (!nickname || !message || !token) {
+    return res.status(400).json({
+      status: "Error",
+      message: "Nickname, message, and Turnstile token are required.",
+    });
   }
 
-  const date = new Date().toISOString();
+  let formData = new FormData();
+  formData.append("secret", turnstileSecret);
+  formData.append("response", token);
+  formData.append("remoteip", ip);
 
-  const query = `INSERT INTO guest_book (nickname, message, date) VALUES (?, ?, ?)`;
-  const params = [nickname, message, date];
+  try {
+    const turnstileResponse = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
-  db.run(query, params, function (err) {
-    if (err) {
-      console.error("Error inserting data:", err.message);
-      return res
-        .status(500)
-        .json({ status: "Error", message: "Failed to insert data." });
+    const outcome = await turnstileResponse.json();
+    if (!outcome.success) {
+      return res.status(400).json({
+        status: "Error",
+        message: "Invalid Turnstile token. Please try again.",
+      });
     }
 
-    console.log(
-      `Data inserted: nickname=${nickname}, message=${message}, date=${date}`
-    );
-    res.redirect("/#guest-book");
-  });
+    // Proceed with inserting data into the database
+    const date = new Date().toISOString();
+    const query = `INSERT INTO guest_book (nickname, message, date) VALUES (?, ?, ?)`;
+    const params = [nickname, message, date];
+
+    db.run(query, params, function (err) {
+      if (err) {
+        console.error("Error inserting data:", err.message);
+        return res.status(500).json({
+          status: "Error",
+          message: "Failed to insert data.",
+        });
+      }
+
+      console.log(
+        `Data inserted: nickname=${nickname}, message=${message}, date=${date}`
+      );
+      res.redirect("/#guest-book");
+    });
+  } catch (error) {
+    console.error("Error validating Turnstile token:", error);
+    return res.status(500).json({
+      status: "Error",
+      message: "Failed to validate Turnstile token.",
+    });
+  }
 });
 
 app.listen(PORT, () =>

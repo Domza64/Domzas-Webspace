@@ -24,7 +24,7 @@ html {
 .projects-grid article {
   border: 2px solid #0a310b;
   border-style: dashed;
-  @apply rounded-md shadow-lg shadow-slate-950 p-4;
+  @apply p-4;
 }
 .projects-grid article h4 {
   @apply font-semibold text-xl mb-4;
@@ -52,5 +52,5 @@ html {
   transform: translateY(-50px);
 }
 .gallery-list img {
-  @apply w-full rounded-sm mb-4 shadow-lg shadow-slate-950;
+  @apply w-full mb-4;
 }

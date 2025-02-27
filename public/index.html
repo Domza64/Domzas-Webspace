@@ -18,7 +18,11 @@
       property="og:description"
       content="Hello!, I am Domza, 21 yearold guy from Zadar. I Love Mountain bikes, It, Linux and much much more... Visit my website to see everything..."
     />
-    <meta property="og:image" content="https://cdn.domza.xyz/cool-mtb.jpg" />
+    <meta property="og:image" content="/assets/images/cool-mtb.jpg" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      defer
+    ></script>
 
     <title>Dominik Juričić | Domza64</title>
 
@@ -36,15 +40,15 @@
     <header class="w-full p-4 index-header">
       <div class="mx-auto flex flex-wrap gap-2 justify-center">
         <img
-          src="https://cdn.domza.xyz/gif/under-construction.gif"
+          src="/assets/images/gif/under-construction.gif"
           alt="Under Construction gif"
         />
-        <img src="https://cdn.domza.xyz/gif/linux.gif" alt="Linux gif" />
+        <img src="/assets/images/gif/linux.gif" alt="Linux gif" />
         <a href="feed.xml"
-          ><img src="https://cdn.domza.xyz/gif/rss.gif" alt="Rss gif"
+          ><img src="/assets/images/gif/rss.gif" alt="Rss gif"
         /></a>
         <img
-          src="https://cdn.domza.xyz/gif/miku-approved.gif"
+          src="/assets/images/gif/miku-approved.gif"
           id="mikuButton"
           alt="Hatsune Miku gif"
         />
@@ -358,6 +362,11 @@
               maxlength="256"
               class="w-full"
             ></textarea>
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAAAPi63XEGfryxvhB"
+              data-callback="onSubmit"
+            ></div>
             <button type="submit">SUBMIT</button>
           </form>
         </div>
