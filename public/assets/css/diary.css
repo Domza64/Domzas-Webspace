@@ -29,6 +29,8 @@ p {
 img {
   border: #24b729 2px dashed;
   padding: 6px;
+  margin: 4px;
   border-radius: 6px;
-  width: 300px;
+  width: 280px;
+  display: inline;
 }

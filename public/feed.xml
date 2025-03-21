@@ -3,11 +3,17 @@
     <channel>
         <title>Domza's Webspace</title>
         <link>https://www.domza.xyz</link>
-        <description>Hmhm...</description>
+        <description>Domza's RSS feed</description>
         <item>
             <title>Does RSS finally work?</title>
             <link>https://www.domza.xyz/diary</link>
             <description>Experimenting with RSS.</description>
+        </item>
+        <item>
+            <title>Wow!</title>
+            <link>https://www.domza.xyz/new-post</link>
+            <description>So I never actually put anything here lol...</description>
+            <pubDate>Fri, 21 Mar 2025 12:00:00 +0000</pubDate>
         </item>
     </channel>
 </rss>

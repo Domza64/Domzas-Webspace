@@ -49,8 +49,8 @@ html {
   @screen md {
     column-count: 3;
   }
-  transform: translateY(-50px);
+  transform: translateY(-60px);
 }
 .gallery-list img {
-  @apply w-full mb-4;
+  @apply w-full mb-4 rounded-md;
 }
