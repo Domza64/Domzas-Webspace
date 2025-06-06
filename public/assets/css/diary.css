@@ -13,7 +13,12 @@ a {
   text-decoration: underline;
 }
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
@@ -24,6 +29,11 @@ h4 {
 
 p {
   margin-top: 1rem;
+}
+
+hr {
+  margin: 1rem 0;
+  border: #0d3d0f 2px dashed;
 }
 
 img {
