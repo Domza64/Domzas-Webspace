@@ -25,3 +25,6 @@ For development, you'll want to run the server and the Tailwind CSS compiler.
 ## Docker
 
 - `docker-compose up -d --build`: Start/Restart docker container
+
+ignore this...
+ps. 'cwebp -resize 800 0 -q 50 input.jpg -o output.webp'
