@@ -1,13 +1,10 @@
 services:
   web:
-    image: ghcr.io/Domza64/Domzas-Webspace:latest
+    image: ghcr.io/domza64/domzas-webspace:main
     ports:
       - "3000:3000"
     volumes:
-      - ./sqlite_db:/app/data
+      - ./PATH_TO_DATA_FOLDER:/app/data # Must be writable by the container (UID=65532)
     environment:
       TURNSTILE_SECRET: ${TURNSTILE_SECRET}
     restart: unless-stopped
-
-volumes:
-  sqlite_db:

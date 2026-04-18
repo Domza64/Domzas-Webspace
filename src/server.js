@@ -4,9 +4,11 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const { marked } = require("marked");
+const helmet = require("helmet");
 require("dotenv").config();
 
 const app = express();
+app.use(helmet());
 const PORT = process.env.PORT || 3000;
 
 var dbPath = "/app/data/guest_book.db";
