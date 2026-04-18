@@ -1,18 +1,14 @@
-$(document).ready(function () {
-  // Create section deviders
-  updateDeviders();
-
-  $("#mikuButton").on("click", playMiku);
-});
-
+// ---------------------------- Section deviders
 // Probably not very resource heavy for todays standards... Still tho, probably should add option to disable this
 function updateDeviders() {
-  var deviders = $(".section-devider > span");
-  var randDeviderString = deviderBuilder();
-  deviders.html(randDeviderString);
-  setTimeout(function () {
-    updateDeviders();
-  }, 550);
+  const deviders = document.querySelectorAll(".section-devider > span");
+  const randDeviderString = deviderBuilder();
+
+  deviders.forEach((el) => {
+    el.innerHTML = randDeviderString;
+  });
+
+  setTimeout(updateDeviders, 550);
 }
 
 function deviderBuilder() {
@@ -30,8 +26,11 @@ function deviderBuilder() {
   return randomString;
 }
 
+updateDeviders();
+
+// ---------------------------- Miku audio
 var isPlaying = false;
-var audio = new Audio("https://cdn.domza.xyz/sounds/miku_song.mp3");
+var audio = new Audio("/assets/sounds/miku_song.mp3");
 
 function playMiku() {
   if (!isPlaying) {
@@ -43,3 +42,33 @@ function playMiku() {
     isPlaying = false;
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateDeviders();
+
+  document.getElementById("mikuButton").addEventListener("click", playMiku);
+});
+
+// ---------------------------- Guest book
+function fetchData() {
+  fetch("/api/guestBook")
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "Success") {
+        const messagesContainer = document.getElementById("messages");
+        messagesContainer.innerHTML = ""; // Clear previous content
+        data.messages.forEach((msg) => {
+          const messageDiv = document.createElement("li");
+          messageDiv.classList.add("message");
+          messageDiv.innerHTML = `
+              <strong>${msg.nickname}</strong>: ${msg.message} <em>(${msg.date})</em>
+            `;
+          messagesContainer.appendChild(messageDiv);
+        });
+      } else {
+        alert("Failed to fetch messages.");
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}
+fetchData();

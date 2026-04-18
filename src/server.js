@@ -8,22 +8,33 @@ const helmet = require("helmet");
 require("dotenv").config();
 
 const app = express();
-app.use(helmet());
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
+var DB_PATH = "/app/data/guest_book.db";
 
-var dbPath = "/app/data/guest_book.db";
+if (process.env.NODE_ENV == "production") {
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'", "https://challenges.cloudflare.com"],
+          scriptSrc: ["'self'", "https://challenges.cloudflare.com"],
+        },
+      },
+    }),
+  );
+}
 
 if (process.env.NODE_ENV != "production") {
   console.log("Running in development mode.");
-  dbPath = "./guest_book.db";
+  DB_PATH = "./guest_book.db";
   runLiveReload();
 }
 
-const db = new sqlite3.Database(dbPath, (err) => {
+const db = new sqlite3.Database(DB_PATH, (err) => {
   if (err) {
     console.error(
       "Error opening database file: ",
-      dbPath,
+      DB_PATH,
       "ERROR: ",
       err.message,
     );
