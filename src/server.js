@@ -9,18 +9,22 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Use the DB_PATH environment variable to specify the database file path
-var dbPath =
-  process.env.DB_PATH || path.join(__dirname, "data", "guest_book.db");
+var dbPath = "/app/data/guest_book.db";
 
 if (process.env.NODE_ENV != "production") {
+  console.log("Running in development mode.");
   dbPath = "./guest_book.db";
-  isDevServer();
+  runLiveReload();
 }
 
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
-    console.error("Error opening database:", err.message);
+    console.error(
+      "Error opening database file: ",
+      dbPath,
+      "ERROR: ",
+      err.message,
+    );
   } else {
     console.log("Connected to SQLite database.");
     db.run(`CREATE TABLE IF NOT EXISTS guest_book (
@@ -82,7 +86,7 @@ app.get("/diary", async (req, res) => {
         const content = await fs.promises.readFile(filePath, "utf-8");
         const htmlContent = marked(content); // Convert Markdown to HTML
         return { title: file.replace(".md", ""), content: htmlContent }; // Use file name as title
-      })
+      }),
     );
 
     // Send the articles to the EJS template
@@ -149,7 +153,7 @@ app.post("/api/guestBook", async (req, res) => {
       {
         method: "POST",
         body: formData,
-      }
+      },
     );
 
     const outcome = await turnstileResponse.json();
@@ -175,7 +179,7 @@ app.post("/api/guestBook", async (req, res) => {
       }
 
       console.log(
-        `Data inserted: nickname=${nickname}, message=${message}, date=${date}`
+        `Data inserted: nickname=${nickname}, message=${message}, date=${date}`,
       );
       res.redirect("/#guest-book");
     });
@@ -189,10 +193,10 @@ app.post("/api/guestBook", async (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
+  console.log(`Server running on http://localhost:${PORT}`),
 );
 
-function isDevServer() {
+function runLiveReload() {
   const livereload = require("livereload");
   const connectLivereload = require("connect-livereload");
 

@@ -1,14 +1,12 @@
 services:
   web:
-    build: .
+    image: ghcr.io/Domza64/Domzas-Webspace:latest
     ports:
       - "3000:3000"
     volumes:
-      - ./sqlite_db:/data # Mount the shared volume at /data in the web container
+      - ./sqlite_db:/app/data
     environment:
       TURNSTILE_SECRET: ${TURNSTILE_SECRET}
-      DB_PATH: /data/guest_book.db
-      NODE_ENV: production
     restart: unless-stopped
 
 volumes:
